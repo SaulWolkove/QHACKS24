@@ -1,8 +1,8 @@
-const PostModel = require("../models/itemModel")
+const ItemModel = require("../models/itemModel")
 
 module.exports = async (req,res)=>{
-    const {id} = req.params;
-    const item = await PostModel.findById(id);
-    await item.deleteOne();
-    res.status(204).json(item);
+    const username= req.query.username
+    const items = await ItemModel.find({username: username});
+    console.log(username);
+    res.json(items);
 }

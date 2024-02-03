@@ -26,11 +26,16 @@ function UploadFoodForm({ username }) {
     const foodGroup = form.foodGroup.value;
     const expiryDate = form.expiryDate.value;
     const quantity = form.quantity.value;
-    const measurement = sizeOption === 'number' ? `${form.measurement.value} ${form.measurementUnit.value}` : undefined;
-    const sizeCategory = sizeOption === 'size' ? form.sizeCategory.value : undefined;
+    let measurement, sizeCategory;
+
+    if (sizeOption === 'number') {
+      measurement = `${form.measurement.value} ${form.measurementUnit.value}`;
+    } else if (sizeOption === 'size') {
+      sizeCategory = form.sizeCategory.value;
+    }
 
     const newFoodItem = FoodItem(name, foodGroup, expiryDate, quantity, measurement, sizeCategory, username);
-    addItemRequest(newFoodItem);
+    addItemRequest(newFoodItem).then(response => console.log(response));
   };
 
   return (
@@ -49,6 +54,7 @@ function UploadFoodForm({ username }) {
         </select>
       </label>
       <label>Expiry Date: <input type="date" name="expiryDate" required /></label>
+      <label>Quantity: <input type="number" name="quantity" min="1" required placeholder="Quantity" /></label>
       <div className="centered-content">
         <div className="option-container">
           <label>
@@ -61,24 +67,26 @@ function UploadFoodForm({ username }) {
           </label>
         </div>
         <div className="input-container">
-          <div className="measurement-inputs" style={{ display: sizeOption === 'number' ? 'flex' : 'none' }}>
-            <input type="number" name="measurement" placeholder="Amount" />
-            <select name="measurementUnit">
-              <option value="kg">kg</option>
-              <option value="g">g</option>
-              <option value="lbs">lbs</option>
-              <option value="oz">oz</option>
-            </select>
-          </div>
-          <div className="size-inputs" style={{ display: sizeOption === 'size' ? 'block' : 'none' }}>
+          {sizeOption === 'number' && (
+            <>
+              <input type="number" name="measurement" placeholder="Amount" />
+              <select name="measurementUnit">
+                <option value="kg">kg</option>
+                <option value="g">g</option>
+                <option value="lbs">lbs</option>
+                <option value="oz">oz</option>
+              </select>
+            </>
+          )}
+          {sizeOption === 'size' && (
             <select name="sizeCategory">
               <option value="Small">Small</option>
               <option value="Medium">Medium</option>
               <option value="Large">Large</option>
             </select>
-          </div>
+          )}
         </div>
-        <label>Upload Picture of the Item: <input type="file" name="image" accept="image/*" /></label>
+        <label>Picture (optional): <input type="file" name="image" accept="image/*" /></label>
         <button type="submit">Submit</button>
       </div>
     </form>
