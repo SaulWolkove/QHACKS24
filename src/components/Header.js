@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
+import { Link } from 'react-router-dom'; // Import Link for routing
 import './Header.css'; // Import the CSS file for styling
 import logo from './searchIcon2.jpg';
 import logo2 from './cartIcon2.png.jpg';
@@ -13,7 +14,7 @@ function Header() {
         } else {
             loginWithRedirect();
         }
-    
+    };
     const handleCartClick = () => {
         window.open('/cart', '_blank'); // Open the cart page in a new tab
     };
