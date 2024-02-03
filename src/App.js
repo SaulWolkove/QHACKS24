@@ -8,6 +8,7 @@ function App() {
       <LoginButton/>
       <LogoutButton/>
       <UserData/>
+      <BuyingFood/>
     </div>
   );
 }
