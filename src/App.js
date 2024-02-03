@@ -14,8 +14,6 @@ function App() {
       <UserData/>
       <UploadFoodForm/>
       <BuyingFood/>
-      
-
     </div>
   );
 }
