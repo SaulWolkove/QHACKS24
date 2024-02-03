@@ -25,10 +25,10 @@ function UploadFoodForm() {
     return (
         
         <form className='upload-food-form' onSubmit={handleSubmit}>
-            <h1>Upload Food Form</h1>
+            <h1>Upload Your Food Here</h1>
             <div className="upload-food-title"></div> 
             <label>
-            Food Name:
+            Food Label:
                 <input type="text" name="name" required />
             </label>
             <br />
@@ -46,7 +46,7 @@ function UploadFoodForm() {
             </label>
             <br />
             <label>
-                Brand:
+                Brand of Food:
                 <input type="text" name="brand" required />
             </label>
             <br />
@@ -56,7 +56,7 @@ function UploadFoodForm() {
             </label>
             <br />
             <label>
-                Upload Picture:
+                Upload Picture of the Item:
                 <input type="file" name="image" accept="image/*" />
             </label>
             <br />
