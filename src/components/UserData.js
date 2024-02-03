@@ -1,19 +1,18 @@
 import { useAuth0 } from "@auth0/auth0-react";
 
-function UserData(){
-    const {user, isAuthenticated, isLoading} = useAuth0();
+function UserData({ chooseUsername }) {
+  const { user, isAuthenticated, isLoading } = useAuth0();
 
-    if(isLoading){
-        return <div>Loading...</div>
-    }
-    return(
-        isAuthenticated && (
-            <div>
-                {user.name}
-            </div>
-        )
-    )
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isAuthenticated) {
+    // Call the chooseUsername function with user.email
+    chooseUsername(user.email);
+  }
+
+  // You might want to return something here, even if it's null or an empty div
 }
-
 
 export default UserData;

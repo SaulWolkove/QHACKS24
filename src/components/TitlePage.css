@@ -1,0 +1,44 @@
+/* Reset default margin and padding */
+body, h1, p {
+    margin: 0;
+    padding: 0;
+}
+
+/* Center the title page content vertically and horizontally */
+.title-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f6c48e; /* Set a background color for the title page */
+}
+
+/* Style for the title */
+.title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #042054; /* Set the color of the title text */
+}
+
+/* Style for the catchphrase */
+.catchphrase {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center; /* Center the catchphrase text */
+    color: #f6c48e; /* Set the color of the catchphrase text */
+}
+
+/* Style for the description */
+.description {
+    text-align: justify;
+    margin-bottom: 20px;
+    color: #042054; /* Set the color of the title text */
+
+}
+
+/* Style for the logo */
+.logo {
+    width: 200px; /* Adjust the width of the logo */
+    height: auto; /* Maintain aspect ratio */
+}
