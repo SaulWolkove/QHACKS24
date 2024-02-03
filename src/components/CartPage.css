@@ -1,16 +1,66 @@
+/* CartPage.css */
+
 .posts-container {
     display: flex;
     flex-wrap: wrap;
-  }
-  
-  .post-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(5cm, 1fr));
-    gap: 1cm;
+    justify-content: space-between;
   }
   
   .post {
-    width: 100%;
-    padding: 1cm;
-    border: 1px solid #ccc;
+    width: calc(33.33% - 10px); /* 33.33% to have 3 boxes per row, subtracting margins */
+    margin-bottom: 20px;
   }
+  
+  .post-info {
+    padding: 10px;
+    border: 1px solid #f8efea;
+  }
+  
+  /* Adjust the size of the image placeholder */
+  .post .post-info .placeholder-image {
+    height: 200px;
+    width: 200px;
+    background-color: #f8efea;
+  }
+  
+  /* Add styles for the buttons */
+  .post-button-group {
+    margin-top: 10px;
+  }
+  
+  .add-to-cart {
+    background-color: #192f01; /* Green */
+    border: none;
+    color: #f8efea;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .cart-button {
+    background-color: #f44336; /* Red */
+    border: none;
+    color: #f8efea;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .expires-soon-label {
+    color: #f44336;
+  }
+  .cart-label-container {
+    margin-top: 2cm;
+  }
+  
+  

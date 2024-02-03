@@ -3,11 +3,13 @@ import './CartPage.css'; // Import the CSS file for styling
 import readPostRequest from "../api/readPostRequest";
 import { useQuery } from "react-query";
 import updateItemRequest from '../api/updateItemRequest';
+import Header from './Header'; // Import the Header component
 
 function CartPage({ username }) {
   // state for posts and expiring items by user
   const [posts, setPosts] = useState([]);
   const [expiringItemsByUser, setExpiringItemsByUser] = useState({});
+  const [cartItemCount, setCartItemCount] = useState(0); // State to track the number of items in the cart
 
   // fetch posts
   const { isLoading } = useQuery(['posts', username], () => readPostRequest(username), {
@@ -60,6 +62,8 @@ function CartPage({ username }) {
   // handle add to cart action
   const handleAddToCart = (id) => {
     updateItemRequest(id, username);
+    // Increment the cart item count when an item is added to the cart
+    setCartItemCount(prevCount => prevCount + 1);
   };
 
   // placeholder image component
@@ -69,42 +73,50 @@ function CartPage({ username }) {
 
   // render loading state or posts list
   return (
-    isLoading ? <div>Loading...</div> : (
-      <>
-        <button className="cart-button">Cart</button>
-        <div className="posts-container">
-          {Object.entries(expiringItemsByUser).map(([username, items]) => (
-            <div key={username}>
-              <h3>{username}</h3>
-              <ul>
-                {items.map(item => (
-                  <li key={item._id}>{item.product} expires soon!</li>
-                ))}
-              </ul>
-            </div>
-          ))}
-          <div className="post-grid">
-            {posts.map((post) => (
-              <div key={post._id} className="post">
-                <PlaceholderImage />
-                <div className="post-info">
-                  <p>Product: {post.product}</p>
-                  <p>Quantity: {post.quantity}</p>
-                  <p>User: {post.username}</p>
-                  <p>
-                    Expiration: {post.expiration}
-                    {getDaysDifference(post.expiration) < 2 && <span className="expires-soon-label"> EXPIRES SOON</span>}
-                  </p>
-                </div>
-                <div className="post-button-group">
-                  <button className="add-to-cart" onClick={() => handleAddToCart(post._id)}>Add to Cart</button>
-                </div>
+    <div className="cart-page">
+      {/* Render the header component */}
+      <Header />
+      <div className="cart-label-container">     
+        <h2 style={{ fontFamily: 'Lato, sans-serif', marginTop: '2cm' }}>Cart ({cartItemCount} items)</h2> {/* Display the number of items in the cart */}
+      </div>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <>
+          <div className="posts-container">
+            {Object.entries(expiringItemsByUser).map(([username, items]) => (
+              <div key={username}>
+                <h3>{username}</h3>
+                <ul>
+                  {items.map(item => (
+                    <li key={item._id}>{item.product} expires soon!</li>
+                  ))}
+                </ul>
               </div>
             ))}
+            <div className="post-grid">
+              {posts.map((post) => (
+                <div key={post._id} className="post">
+                  <PlaceholderImage />
+                  <div className="post-info">
+                    <p>Product: {post.product}</p>
+                    <p>Quantity: {post.quantity}</p>
+                    <p>User: {post.username}</p>
+                    <p>
+                      Expiration: {post.expiration}
+                      {getDaysDifference(post.expiration) < 2 && <span className="expires-soon-label"> EXPIRES SOON</span>}
+                    </p>
+                  </div>
+                  <div className="post-button-group">
+                    <button className="add-to-cart" onClick={() => handleAddToCart(post._id)}>Add to Cart</button>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </>
-    )
+        </>
+      )}
+    </div>
   );
 }
 
