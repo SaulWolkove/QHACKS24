@@ -1,0 +1,11 @@
+
+.LoginOutButtons {
+    background-color: #e0475b;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 2px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 14px;
+}

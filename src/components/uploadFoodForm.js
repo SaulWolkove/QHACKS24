@@ -30,7 +30,7 @@ function UploadFoodForm({ username }) {
 
   return (
     <form className="upload-food-form" onSubmit={handleSubmit}>
-      <h1>Upload Your Food Here</h1>
+      <h1 className="upload-food-title">Upload Your Food Here</h1>
       <div className="upload-food-title"></div>
       <label>
         Food Label:

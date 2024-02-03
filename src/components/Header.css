@@ -44,3 +44,11 @@
 .cart-button button:hover {
     text-decoration: underline;
 }
+.search-button img{
+    width: 9%; /* Set width to 1/8 of the original size */
+    height: auto; /* Maintain aspect ratio */
+}
+.cart-button img {
+    width: 12.5%; /* Set width to 1/8 of the original size */
+    height: auto; /* Maintain aspect ratio */
+}

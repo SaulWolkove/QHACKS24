@@ -15,7 +15,7 @@ body, h1, p {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #d0d0d0; /* Set a background color for the title page */
+    background-color: #f8efea; /* Set a background color for the title page */
     padding-top: 1cm; /* Adjust the top padding to start 2 cm down */
 }
 
@@ -40,7 +40,11 @@ body, h1, p {
     text-align: justify;
     margin-bottom: 20px;
     color: #192f01; /* Set the color of the title text */
-
+}
+    
+/* Add hover effect to the signup button */
+.signup-button:hover {
+    background-color: #192f01; /* Change background color on hover */
 }
 
 /* Style for the logo */

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
 import './Header.css'; // Import the CSS file for styling
+import logo from './searchIcon2.jpg';
+import logo2 from './cartIcon2.png.jpg';
 
 function Header() {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
@@ -28,13 +30,15 @@ function Header() {
             <div className="search-button">
                 {/* Search button goes here */}
                 <button>
-                    <img src="./searchIcon.jpg" alt="Search" className="search-icon" />
+                    Search
+                    <img src={logo} alt="Search" className="search-icon" />
                 </button>          
             </div>
             <div className="cart-button">
                 {/* Cart button goes here */}
                 <button>
-                    <img src="./cartIcon.png" alt="Cart" />
+                    Cart
+                    <img src={logo2} alt="Cart" className="cart-icon" />
                 </button>
             </div>
         </div>

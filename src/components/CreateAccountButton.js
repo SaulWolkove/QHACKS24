@@ -1,12 +1,13 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import React from 'react';
+import './LoginOutButtons.css'; 
 
 
 function CreateAccountButton (){
     const {loginWithRedirect} = useAuth0();
 
     return(
-        <button onClick={( ()=> loginWithRedirect())}>Create an Account </button>
+        <button className="signup-button" onClick={ ()=> loginWithRedirect()}>Create an Account </button>
     )
 }
 
