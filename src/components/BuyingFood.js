@@ -2,6 +2,7 @@ import React from 'react';
 import './BuyingFood.css';
 import readPostRequest from "../api/readPostRequest";
 import {useQuery} from "react-query";
+import updateItemRequest from '../api/updateItemRequest';
 
 
 function BuyingFood({username}) {
@@ -11,7 +12,7 @@ function BuyingFood({username}) {
     )
   // Placeholder for handling add to cart action
   const handleAddToCart = (id) => {
-    console.log(`Add to cart clicked for post id: ${id}`);
+    updateItemRequest(id,username);
     // Add to cart logic
   };
 
@@ -26,8 +27,7 @@ function BuyingFood({username}) {
       <button className="cart-button">Cart</button>
       <div className="posts-container">
         {posts.map((post) => (
-          <div key={post.id} className="post">
-            <h5>{post.companyName}</h5>
+          <div key={post._id} className="post">
             <PlaceholderImage />
             <div className="post-info">
               <p>Product: {post.product}</p>
@@ -35,7 +35,7 @@ function BuyingFood({username}) {
               <p>User: {post.username}</p>
             </div>
             <div className="post-button-group">
-              <button className="add-to-cart" onClick={() => handleAddToCart(post.id)}>Add to Cart</button>
+              <button className="add-to-cart" onClick={() => handleAddToCart(post._id)}>Add to Cart</button>
             </div>
           </div>
         ))}

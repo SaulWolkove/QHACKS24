@@ -4,7 +4,9 @@ const itemSchema = new mongoose.Schema({
     product: String,
     quantity: Number,
     expiration: String,
-    username: String
+    username: String,
+    user_queued: String,
+    group: String
 })
 
 const itemModel = mongoose.model("Item", itemSchema);
