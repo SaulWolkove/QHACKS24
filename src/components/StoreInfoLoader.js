@@ -30,8 +30,14 @@ export default function StoreInfoLoader({ username }) {
                 items.map((item) => (
                     <div key={item._id} className="item">
                         <div className="item-info">
+                        {item.user_queued !== "" && (
+                                <p>
+                                    Item In a Cart: {item.user_queued}
+                                </p>
+                            )}
                             <p>Product: {item.product}</p>
                             <p>Expiration: {item.expiration}</p>
+                            
                         </div>
                         <div>
                             <button className="delete-button" onClick={() => handleDelete(item._id)}>Delete</button>
