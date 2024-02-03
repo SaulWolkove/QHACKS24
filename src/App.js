@@ -1,6 +1,7 @@
 import LoginButton from './components/LoginButton';
 import LogoutButton from './components/LogoutButton';
 import UserData from './components/UserData';
+import UploadFoodForm from './components/uploadFoodForm';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <LoginButton/>
       <LogoutButton/>
       <UserData/>
+      <UploadFoodForm/>
     </div>
   );
 }
