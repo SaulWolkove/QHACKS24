@@ -3,14 +3,15 @@ import './BuyingFood.css';
 import readPostRequest from "../api/readPostRequest";
 import {useQuery} from "react-query";
 import updateItemRequest from '../api/updateItemRequest';
-
+import { useState } from 'react';
 
 function BuyingFood({username}) {
-  const {isLoading, data: posts} = useQuery(
-    ['posts', username],
-    (username)=>readPostRequest(username)
-    )
-  // Placeholder for handling add to cart action
+  const [posts, setPosts] = useState([]);
+  const { isLoading } = useQuery(['posts', username], () => readPostRequest(username), {
+    onSuccess: (data) => {
+      setPosts(data);
+    },
+  });
   const handleAddToCart = (id) => {
     updateItemRequest(id,username);
     // Add to cart logic
@@ -27,6 +28,7 @@ function BuyingFood({username}) {
       <button className="cart-button">Cart</button>
       <div className="posts-container">
         {posts.map((post) => (
+          (post.user_queued === "") &&
           <div key={post._id} className="post">
             <PlaceholderImage />
             <div className="post-info">
