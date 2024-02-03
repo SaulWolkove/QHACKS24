@@ -1,0 +1,37 @@
+.inventory-container {
+    max-height: 90vh;
+    overflow-y: auto;
+    padding: 20px;
+    margin: auto;
+    width: 100%;
+    max-width: 600px;
+}
+/* Style for the title of food in cart */
+.post h5 {
+    margin-top: 15px;
+    font-size: 22px; /* Set the font size to 20 pixels */
+    color: #042054; /* Set the color of the title text */
+
+}
+.post {
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: #f6c48e;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px; /* Set the font size to 16 pixels */
+}
+.post img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    background: #f0f0f0;
+}
+.item-info {
+    margin-top: 20px;
+    font-size: 18px; /* Set the font size to 16 pixels */
+    margin-bottom: 20px; /* Add margin between date posted and button */
+    color: #042054; /* Set the color of the title text */
+
+} 
