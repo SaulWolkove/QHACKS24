@@ -38,11 +38,12 @@ function Header() {
             <div className="cart-button">
                 {/* Cart button goes here */}
                 <button>
-                    Cart
+                    <Link to="/cart">Cart</Link>
                     <img src={logo2} alt="Cart" className="cart-icon" />
                 </button>
+                
             </div>
-            <Link to="/cart">Cart</Link>
+            
         </div>
     );
 }
