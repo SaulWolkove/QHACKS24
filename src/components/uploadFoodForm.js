@@ -1,5 +1,16 @@
 import React from "react";
 import "./uploadFoodForm.css";
+import addItemRequest from "../api/addItemRequest";
+// import FoodItem from './FoodItem'
+
+const FoodItem = (food, group, date) => {
+  const item = {
+    product: food,
+    group: group,
+    date: date,
+  };
+  return item;
+};
 
 function UploadFoodForm() {
   const handleSubmit = (event) => {
@@ -9,15 +20,15 @@ function UploadFoodForm() {
     const name = event.target.name.value;
     const foodGroup = event.target.foodGroup.value;
     const expiryDate = event.target.expiryDate.value;
-    const imageFile = event.target.image.files[0]; // Access the uploaded image file
+    // const imageFile = event.target.image.files[0]; // Access the uploaded image file
 
-    // Do something with the form data (e.g., send it to a server)
-    console.log("Food Name:", name);
-    console.log("Food Group:", foodGroup);
-    console.log("Expiry Date:", expiryDate);
-    console.log("Image File:", imageFile);
+    // console.log(name);
 
-    // You can add further processing or submission logic here
+    const newFoodItem = FoodItem(name, foodGroup, expiryDate);
+    console.log(newFoodItem);
+
+    console.log(newFoodItem.group)
+    addItemRequest(newFoodItem);
   };
 
   return (
