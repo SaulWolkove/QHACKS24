@@ -23,8 +23,8 @@ function UploadFoodForm() {
     // const imageFile = event.target.image.files[0]; // Access the uploaded image file
 
     const newFoodItem = FoodItem(name, foodGroup, expiryDate);
+    addItemRequest(newFoodItem)
 
-    addItemRequest(newFoodItem);
   };
 
   return (
