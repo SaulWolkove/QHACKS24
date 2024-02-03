@@ -5,7 +5,7 @@ module.exports = async (req, res) =>{
     const {quantity}=req.body
     const {username}=req.body
     const {group} = req.body
-    const {user_queued} = req.body
+    const user_queued = ""
     const {expiration} = req.body
     const item = new itemModel({
         product,
