@@ -10,18 +10,23 @@ function UploadFoodForm() {
         const foodGroup = event.target.foodGroup.value;
         const brand = event.target.brand.value;
         const expiryDate = event.target.expiryDate.value;
+        const imageFile = event.target.image.files[0]; // Access the uploaded image file
 
         // Do something with the form data (e.g., send it to a server)
         console.log("Food Name:", name);
         console.log("Food Group:", foodGroup);
         console.log("Brand:", brand);
         console.log("Expiry Date:", expiryDate);
+        console.log("Image File:", imageFile);
 
         // You can add further processing or submission logic here
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+        
+        <form className='upload-food-form' onSubmit={handleSubmit}>
+            <h1>Upload Food Form</h1>
+            <div className="upload-food-title"></div> 
             <label>
             Food Name:
                 <input type="text" name="name" required />
@@ -48,6 +53,11 @@ function UploadFoodForm() {
             <label>
                 Expiry Date:
                 <input type="date" name="expiryDate" required />
+            </label>
+            <br />
+            <label>
+                Upload Picture:
+                <input type="file" name="image" accept="image/*" />
             </label>
             <br />
             <button type="submit">Submit</button>
