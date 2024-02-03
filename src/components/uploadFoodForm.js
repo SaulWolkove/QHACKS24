@@ -2,34 +2,34 @@ import React, { useState } from "react";
 import "./uploadFoodForm.css";
 import addItemRequest from "../api/addItemRequest";
 
-const FoodItem = (food, group, date, quantity, sizePerItem, measurementUnit, customUnit, username) => {
-  const unit = measurementUnit === 'other' ? customUnit : measurementUnit;
-  const item = {
+const FoodItem = (food, group, date, quantity, measurement, sizeCategory, username) => {
+  return {
     product: food,
     group: group,
     expiration: date,
     quantity: quantity,
-    sizePerItem: sizePerItem ? `${sizePerItem} ${unit}` : undefined,
+    measurement: measurement,
+    sizeCategory: sizeCategory,
     user_queued: false,
     username: username,
   };
-  return item;
 };
 
 function UploadFoodForm({ username }) {
-  const [measurementUnit, setMeasurementUnit] = useState('');
+  const [sizeOption, setSizeOption] = useState('number');
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const name = event.target.name.value;
-    const foodGroup = event.target.foodGroup.value;
-    const expiryDate = event.target.expiryDate.value;
-    const quantity = event.target.quantity.value;
-    const sizePerItem = event.target.sizePerItem.value;
-    const customUnit = measurementUnit === 'other' ? event.target.customUnit.value : '';
+    const form = event.target;
+    const name = form.name.value;
+    const foodGroup = form.foodGroup.value;
+    const expiryDate = form.expiryDate.value;
+    const quantity = form.quantity.value;
+    const measurement = sizeOption === 'number' ? `${form.measurement.value} ${form.measurementUnit.value}` : undefined;
+    const sizeCategory = sizeOption === 'size' ? form.sizeCategory.value : undefined;
 
-    const newFoodItem = FoodItem(name, foodGroup, expiryDate, quantity, sizePerItem, measurementUnit, customUnit, username);
+    const newFoodItem = FoodItem(name, foodGroup, expiryDate, quantity, measurement, sizeCategory, username);
     addItemRequest(newFoodItem);
   };
 
@@ -49,26 +49,38 @@ function UploadFoodForm({ username }) {
         </select>
       </label>
       <label>Expiry Date: <input type="date" name="expiryDate" required /></label>
-      <div className="form-row">
-        <label>Quantity: <input type="number" name="quantity" min="1" required /></label>
-        <label>Size/Weight per Item: <input type="text" name="sizePerItem" /></label>
-        <label>Measurement Unit:
-          <select name="measurementUnit" required onChange={(e) => setMeasurementUnit(e.target.value)}>
-            <option value="">Select Unit</option>
-            <option value="kg">Kilograms (kg)</option>
-            <option value="g">Grams (g)</option>
-            <option value="lbs">Pounds (lbs)</option>
-            <option value="oz">Ounces (oz)</option>
-            <option value="L">Liters (L)</option>
-            <option value="mL">Milliliters (mL)</option>
-            <option value="count">Count</option>
-            <option value="other">Other</option>
-          </select>
-        </label>
-        {measurementUnit === 'other' && <input type="text" name="customUnit" placeholder="Specify unit" />}
+      <div className="centered-content">
+        <div className="option-container">
+          <label>
+            <input type="radio" name="sizeOption" value="number" checked={sizeOption === 'number'} onChange={() => setSizeOption('number')} />
+            Measurement
+          </label>
+          <label>
+            <input type="radio" name="sizeOption" value="size" checked={sizeOption === 'size'} onChange={() => setSizeOption('size')} />
+            Size
+          </label>
+        </div>
+        <div className="input-container">
+          <div className="measurement-inputs" style={{ display: sizeOption === 'number' ? 'flex' : 'none' }}>
+            <input type="number" name="measurement" placeholder="Amount" />
+            <select name="measurementUnit">
+              <option value="kg">kg</option>
+              <option value="g">g</option>
+              <option value="lbs">lbs</option>
+              <option value="oz">oz</option>
+            </select>
+          </div>
+          <div className="size-inputs" style={{ display: sizeOption === 'size' ? 'block' : 'none' }}>
+            <select name="sizeCategory">
+              <option value="Small">Small</option>
+              <option value="Medium">Medium</option>
+              <option value="Large">Large</option>
+            </select>
+          </div>
+        </div>
+        <label>Upload Picture of the Item: <input type="file" name="image" accept="image/*" /></label>
+        <button type="submit">Submit</button>
       </div>
-      <label>Upload Picture of the Item: <input type="file" name="image" accept="image/*" /></label>
-      <button type="submit">Submit</button>
     </form>
   );
 }

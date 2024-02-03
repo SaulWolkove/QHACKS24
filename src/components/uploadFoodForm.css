@@ -13,31 +13,35 @@
     font-size: 24px;
 }
 
-.field-container {
+.option-container, .input-container {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    width: 100%; 
 }
 
 .upload-food-form label {
-    flex: 1;
-    margin-right: 10px; /* Add spacing between labels */
-    font-size: 15px;
-    color: #192f01;
+    display: block; 
+    margin-bottom: 10px; 
+    width: 100%; 
 }
 
-.upload-food-form input, .upload-food-form select {
-    width: calc(100% - 20px); /* Adjust width to fit label */
+.upload-food-form input[type="text"],
+.upload-food-form input[type="number"],
+.upload-food-form input[type="date"],
+.upload-food-form select, 
+.upload-food-form input[type="file"] {
+    width: 100%; 
     padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #f8efea;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+    margin: 5px 0; 
+    box-sizing: border-box; 
+    border: 1px solid transparent; 
+    background-color: #fff; 
+    outline: none; }
 
 .upload-food-form button[type="submit"] {
-    width: 100%;
+    width: 100%; 
     padding: 10px;
+    margin-top: 10px;
     background-color: #e0475b;
     color: white;
     border: none;
