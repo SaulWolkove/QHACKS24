@@ -59,3 +59,18 @@
 .add-to-cart:hover {
     background-color: #042054;
 }
+
+.expiration-soon {
+    color: red;
+}
+
+.expires-soon-label {
+    background-color: #ffcccb; /* Light red background */
+    color: #d8000c; /* Darker red text for contrast */
+    padding: 3px 8px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 90%;
+}
+  
