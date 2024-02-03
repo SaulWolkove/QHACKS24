@@ -1,40 +1,42 @@
 import UserData from './components/UserData';
 import UploadFoodForm from './components/uploadFoodForm';
-import BuyingFood from './components/BuyingFood'
+import BuyingFood from './components/BuyingFood';
 import TitlePage from './components/TitlePage';
 import { useState } from 'react';
 import StoreInfoLoader from './components/StoreInfoLoader';
-import { BrowserRouter, Route } from 'react-router-dom';
-import CartPage from './CartPage'; // Import your CartPage component
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CartPage from './components/CartPage';
 
 function App() {
   const [username, setUsername] = useState("");
-  const [isSignUpClicked, setIsSignUpClicked] = useState(false); // Define isSignUpClicked state
+  const [isSignUpClicked, setIsSignUpClicked] = useState(false);
 
-  function chooseUsername(name){
+  function chooseUsername(name) {
     setUsername(name);
   }
 
   function handleSignUpClick() {
-    setIsSignUpClicked(true); // Function to handle sign-up click
+    setIsSignUpClicked(true);
   }
 
-  const [showposts,setposts] = useState(true);
-  function setShowPosts(){
+  const [showposts, setposts] = useState(true);
+  function setShowPosts() {
     setposts(!showposts);
   }
 
   return (
     <BrowserRouter>
       <div className="App">
-        <TitlePage setShowPosts={setShowPosts} setIsSignUpClicked={setIsSignUpClicked} /> {/* Pass setIsSignUpClicked to TitlePage */}
+        <TitlePage setShowPosts={setShowPosts} setIsSignUpClicked={setIsSignUpClicked} />
         <UserData chooseUsername={chooseUsername}/>
         <UploadFoodForm username={username}/>
         {showposts && <BuyingFood username={username} showposts={showposts}/>}
         <StoreInfoLoader username={username}/>
       
-        <Route path="/cart" component={CartPage} />
-        {/* Other routes can go here */}
+        <Routes>
+          <Route path="/cart" element={<CartPage />} />
+          {/* Define other routes as needed */}
+        </Routes>
       </div>
     </BrowserRouter>
   );
