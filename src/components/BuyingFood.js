@@ -1,26 +1,14 @@
 import React from 'react';
 import './BuyingFood.css';
+import readPostRequest from "../api/readPostRequest";
+import {useQuery} from "react-query";
 
-function BuyingFood() {
-  // Simulating a list of posts with necessary details
-  const posts = [
-    {
-      id: 1,
-      companyName: 'Metro',
-      expiryDate: '2024-05-01',
-      postedDate: '2024-01-25',
-      description: 'Fresh Bananas'
-    },
-    {
-      id: 2,
-      companyName: 'Loblaws',
-      expiryDate: '2024-05-01',
-      postedDate: '2024-01-25',
-      description: 'Fresh Bananas'
-    },
-    // Add more posts
-  ];
 
+function BuyingFood({username}) {
+  const {isLoading, data: posts} = useQuery(
+    ['posts', username],
+    (username)=>readPostRequest(username)
+    )
   // Placeholder for handling add to cart action
   const handleAddToCart = (id) => {
     console.log(`Add to cart clicked for post id: ${id}`);
@@ -30,8 +18,10 @@ function BuyingFood() {
   const PlaceholderImage = () => (
     <div style={{ height: '200px', backgroundColor: '#eaeaea' }}>Image placeholder</div>
   );
-
   return (
+    isLoading ? (
+      <div>Loading...</div>
+    ) : (
     <>
       <button className="cart-button">Cart</button>
       <div className="posts-container">
@@ -40,9 +30,9 @@ function BuyingFood() {
             <h5>{post.companyName}</h5>
             <PlaceholderImage />
             <div className="post-info">
-              <p>Description: {post.description}</p>
-              <p>Expiry Date: {post.expiryDate}</p>
-              <p>Posted: {post.postedDate}</p>
+              <p>Product: {post.product}</p>
+              <p>Quantity: {post.quantity}</p>
+              <p>User: {post.username}</p>
             </div>
             <div className="post-button-group">
               <button className="add-to-cart" onClick={() => handleAddToCart(post.id)}>Add to Cart</button>
@@ -51,6 +41,7 @@ function BuyingFood() {
         ))}
       </div>
     </>
+    )
   );
 }
 
