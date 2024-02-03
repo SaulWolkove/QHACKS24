@@ -6,7 +6,7 @@
     left: 0;
     width: 100%;
     height: 1.5cm; /* Adjust the height as needed */
-    background-color: #6b5e48d3; /* Example background color */
+    background-color: #192f01d6; /* Example background color */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -18,8 +18,8 @@
 .dropdown select {
     width: 160px; /* Adjust width as needed */
     padding: 0.5rem 1rem; /* Adjust padding as needed */
-    background-color: rgb(29, 134, 152); /* Set background color */
-    color: white; /* Set text color */
+    background-color: #adde69;
+    color: #192f01;
     border: none; /* Remove border */
     border-radius: 4px; /* Adjust border radius as needed */
     cursor: pointer; /* Set cursor style */
@@ -27,14 +27,14 @@
 
 .search-button button{
     background-color: transparent;
-    color: white;
+    color: #f8efea;
     border: none;
     cursor: pointer;
     font-size: 16px; /* Example font size */
 }
 .cart-button button {
-    background-color: rgb(29, 134, 152);
-    color: white;
+    background-color: #adde69;
+    color: #192f01;
     border: none;
     cursor: pointer;
     font-size: 16px; /* Example font size */

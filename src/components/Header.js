@@ -28,13 +28,13 @@ function Header() {
             <div className="search-button">
                 {/* Search button goes here */}
                 <button>
-                    <img src="/SearchIcon.svg" alt="Search" className="search-icon" />
-                </button>
+                    <img src="./searchIcon.jpg" alt="Search" className="search-icon" />
+                </button>          
             </div>
             <div className="cart-button">
                 {/* Cart button goes here */}
                 <button>
-                    <img src="/CartIcon.svg" alt="Cart" />
+                    <img src="./cartIcon.png" alt="Cart" />
                 </button>
             </div>
         </div>
