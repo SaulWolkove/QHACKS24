@@ -31,13 +31,14 @@
     font-size: 16px; /* Example font size */
 }
 .cart-button button {
-    width: 80px;
-    padding: 0.5rem rem; /* Adjust padding as needed */
+    width: 60px;
     background-color: #adde69;
     color: #192f01;
     border: none;
     cursor: pointer;
     font-size: 16px; /* Example font size */
+    margin-left: 1cm; /* Move the cart button 1 cm to the right */
+
 }
 .dropdown select,
 .search-button button:hover,
@@ -63,7 +64,6 @@
     font-size: 16px; /* Set font size */
 }
 .search-icon {
-    
     width: 8%; /* Set width to 1/8 of the original size */
     margin-left: 10px; /* Adjust margin to separate from the input */
 }

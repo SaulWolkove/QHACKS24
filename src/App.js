@@ -4,6 +4,8 @@ import BuyingFood from './components/BuyingFood'
 import TitlePage from './components/TitlePage';
 import { useState } from 'react';
 import StoreInfoLoader from './components/StoreInfoLoader';
+import { BrowserRouter, Route } from 'react-router-dom';
+import CartPage from './CartPage'; // Import your CartPage component
 
 function App() {
   const [username, setUsername] = useState("");
@@ -23,13 +25,18 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <TitlePage setShowPosts={setShowPosts} setIsSignUpClicked={setIsSignUpClicked} /> {/* Pass setIsSignUpClicked to TitlePage */}
-      <UserData chooseUsername={chooseUsername}/>
-      <UploadFoodForm username={username}/>
-      {showposts && <BuyingFood username={username} showposts={showposts}/>}
-      <StoreInfoLoader username={username}/>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <TitlePage setShowPosts={setShowPosts} setIsSignUpClicked={setIsSignUpClicked} /> {/* Pass setIsSignUpClicked to TitlePage */}
+        <UserData chooseUsername={chooseUsername}/>
+        <UploadFoodForm username={username}/>
+        {showposts && <BuyingFood username={username} showposts={showposts}/>}
+        <StoreInfoLoader username={username}/>
+      
+        <Route path="/cart" component={CartPage} />
+        {/* Other routes can go here */}
+      </div>
+    </BrowserRouter>
   );
 }
 

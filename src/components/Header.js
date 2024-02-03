@@ -13,6 +13,9 @@ function Header() {
         } else {
             loginWithRedirect();
         }
+    
+    const handleCartClick = () => {
+        window.open('/cart', '_blank'); // Open the cart page in a new tab
     };
 
     return (
@@ -38,6 +41,7 @@ function Header() {
                     <img src={logo2} alt="Cart" className="cart-icon" />
                 </button>
             </div>
+            <Link to="/cart">Cart</Link>
         </div>
     );
 }
