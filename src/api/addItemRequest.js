@@ -10,7 +10,7 @@ export default (item)=>{
             quantity: item.quantity,
             expiration: item.expiration,
             user_queued: item.queued,
-            // username: item.username
+            username: item.username
         })
     })
     .then(response=>response.json())
