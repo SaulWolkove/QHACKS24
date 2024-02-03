@@ -5,6 +5,8 @@ import LoginButton from './LoginButton'; // Import the LoginButton component
 import LogoutButton from './LogoutButton'; // Import the LogoutButton component
 import CreateAccountButton  from './CreateAccountButton'; // Import the LogoutButton component
 import Header from './Header';
+import LogoMain from './LogoMain.png';
+
 
 function TitlePage({ setShowPosts }) {
     // State to track whether sign-up button is clicked
@@ -18,7 +20,9 @@ function TitlePage({ setShowPosts }) {
         <div className="title-container">
             <Header /> 
             <div className="title-container">
-                <img src="freshsave_logo.png" alt="FreshSave Logo" className="logo" />
+                <button>
+                    <img src={LogoMain} alt="logo" className="logo img"/>
+                </button>                 
                 <h1 className="title">FreshSave</h1>
                 <p className="catchphrase">Where Every Bite Gets a Second Chance to Make a First Impression.</p>
                 <div className="description">

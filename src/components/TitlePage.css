@@ -42,6 +42,11 @@ body, h1, p {
     color: #192f01; /* Set the color of the title text */
 }
     
+.logo img{
+    width: 20%; /* Set width to 1/8 of the original size */
+    height: auto; /* Maintain aspect ratio */
+    border: none;
+}
 /* Add hover effect to the signup button */
 .signup-button:hover {
     background-color: #192f01; /* Change background color on hover */
