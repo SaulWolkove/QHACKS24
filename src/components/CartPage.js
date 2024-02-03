@@ -12,7 +12,7 @@ function CartPage({ username }) {
   const [cartItemCount, setCartItemCount] = useState(0); // State to track the number of items in the cart
 
   // fetch posts
-  const { isLoading } = useQuery(['posts', username], () => readPostRequest(username), {
+  const { isLoading } = useQuery(['card', username], () => readPostRequest(username), {
     onSuccess: (data) => {
       // sort data by expiration date and update states
       const sortedData = data.sort((a, b) => new Date(a.expiration) - new Date(b.expiration));

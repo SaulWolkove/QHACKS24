@@ -6,9 +6,13 @@ export default (item)=>{
         },
         body: JSON.stringify({
             product: item.product,
+            group: item.group,
             quantity: item.quantity,
             expiration: item.expiration,
-            username: item.username
+            user_queued: item.queued,
+            username: item.username,
+            size: sizeCategory,
+            measurement: measurement
         })
     })
     .then(response=>response.json())

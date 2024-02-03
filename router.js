@@ -15,6 +15,7 @@ router.post("/createPost",createPostRoute);
 router.get("/readPost",readPostRoute);
 router.delete("/post/:id",deletePostRoute);
 router.put("/update/:id", updateItemRoute);
+router.get("/getCart/:id", updateItemRoute);
 
 
 module.exports = router
