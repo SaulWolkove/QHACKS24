@@ -41,9 +41,7 @@ function Header() {
                     <Link to="/cart">Cart</Link>
                     <img src={logo2} alt="Cart" className="cart-icon" />
                 </button>
-                
             </div>
-            
         </div>
     );
 }

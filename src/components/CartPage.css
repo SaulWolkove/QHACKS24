@@ -1,0 +1,16 @@
+.posts-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .post-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(5cm, 1fr));
+    gap: 1cm;
+  }
+  
+  .post {
+    width: 100%;
+    padding: 1cm;
+    border: 1px solid #ccc;
+  }
