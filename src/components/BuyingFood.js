@@ -23,7 +23,6 @@ function BuyingFood({username}) {
       <div>Loading...</div>
     ) : (
     <>
-    {  console.log(posts)}
       <button className="cart-button">Cart</button>
       <div className="posts-container">
         {posts.map((post) => (
