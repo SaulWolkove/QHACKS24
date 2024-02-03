@@ -3,17 +3,18 @@ import "./uploadFoodForm.css";
 import addItemRequest from "../api/addItemRequest";
 // import FoodItem from './FoodItem'
 
-const FoodItem = (food, group, date) => {
+const FoodItem = (food, group, date, username) => {
   const item = {
     product: food,
     group: group,
     expiration: date,
     user_queued: false,
+    username: username,
   };
   return item;
 };
 
-function UploadFoodForm() {
+function UploadFoodForm({ username }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -23,9 +24,8 @@ function UploadFoodForm() {
     const expiryDate = event.target.expiryDate.value;
     // const imageFile = event.target.image.files[0]; // Access the uploaded image file
 
-    const newFoodItem = FoodItem(name, foodGroup, expiryDate);
-    addItemRequest(newFoodItem)
-
+    const newFoodItem = FoodItem(name, foodGroup, expiryDate, username);
+    addItemRequest(newFoodItem);
   };
 
   return (
