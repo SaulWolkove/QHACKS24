@@ -10,6 +10,7 @@ function App() {
       <LoginButton/>
       <LogoutButton/>
       <UserData/>
+      <h1>Upload Food Form</h1>
       <UploadFoodForm/>
       <BuyingFood/>
     </div>

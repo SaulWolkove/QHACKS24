@@ -9,7 +9,7 @@ function UploadFoodForm() {
         const expiryDate = event.target.expiryDate.value;
 
         // Do something with the form data (e.g., send it to a server)
-        console.log("Name:", name);
+        console.log("Food Name:", name);
         console.log("Food Group:", foodGroup);
         console.log("Brand:", brand);
         console.log("Expiry Date:", expiryDate);
@@ -20,7 +20,7 @@ function UploadFoodForm() {
     return (
         <form onSubmit={handleSubmit}>
             <label>
-                Name:
+            Food Name:
                 <input type="text" name="name" required />
             </label>
             <br />
