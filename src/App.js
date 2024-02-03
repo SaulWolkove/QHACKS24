@@ -5,7 +5,7 @@ import UploadFoodForm from './components/uploadFoodForm';
 import BuyingFood from './components/BuyingFood'
 import TitlePage from './components/TitlePage';
 import { useState } from 'react';
-
+import StoreInfoLoader from './components/StoreInfoLoader';
 function App() {
   const [username, setUsername] = useState("");
   function chooseUsername(name){
@@ -19,6 +19,7 @@ function App() {
       <UserData chooseUsername={chooseUsername}/>
       <UploadFoodForm username={username}/>
       <BuyingFood username={username}/>
+      <StoreInfoLoader username={username}/>
     </div>
   );
 }
