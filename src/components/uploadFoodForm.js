@@ -14,8 +14,7 @@ const FoodItem = (food, group, date, username) => {
   return item;
 };
 
-function UploadFoodForm(username) {
-    console.log(username)
+function UploadFoodForm({ username }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -26,8 +25,7 @@ function UploadFoodForm(username) {
     // const imageFile = event.target.image.files[0]; // Access the uploaded image file
 
     const newFoodItem = FoodItem(name, foodGroup, expiryDate, username);
-    addItemRequest(newFoodItem)
-
+    addItemRequest(newFoodItem);
   };
 
   return (
