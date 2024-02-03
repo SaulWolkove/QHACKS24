@@ -1,53 +1,40 @@
-
-
-/* styles.css */
-
-/* Style for form container */
 .upload-food-form {
     max-width: 500px;
-    margin: 0 auto;
+    margin: auto;
     padding: 20px;
-    border: 0px ;
     border-radius: 5px;
     background-color: #f8efea;
-    font-size: 16px; /* Increase font size by 2 sizes */
+    font-family: 'Lato', sans-serif;
 }
 
-/* Style for title */
 .upload-food-title {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 10px;
-    border: 0px ;
-    border-radius: 5px;
+    text-align: center;
     color: #192f01;
-    font-family: 'Lato', sans-serif;
-    font-size: 34px; /* Increase font size by 2 sizes */
+    font-size: 24px;
 }
-/* Style for form labels */
+
+.field-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
 .upload-food-form label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 15px; /* Increase font size by 2 sizes */
-    font-family: 'Lato', sans-serif;
+    flex: 1;
+    margin-right: 10px; /* Add spacing between labels */
+    font-size: 15px;
     color: #192f01;
-
 }
 
-/* Style for form inputs */
-.upload-food-form input[type="text"],
-.upload-food-form select,
-.upload-food-form input[type="date"] {
-    width: 100%;
+.upload-food-form input, .upload-food-form select {
+    width: calc(100% - 20px); /* Adjust width to fit label */
     padding: 8px;
-    border: 0px ;
+    margin-top: 5px;
+    border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
-    font-size: 15px; /* Increase font size by 2 sizes */
-    color: #192f01; /* Set font color */
 }
 
-/* Style for form submit button */
 .upload-food-form button[type="submit"] {
     width: 100%;
     padding: 10px;
@@ -58,7 +45,6 @@
     cursor: pointer;
 }
 
-/* Style for form submit button on hover */
 .upload-food-form button[type="submit"]:hover {
     background-color: #192f01;
 }
