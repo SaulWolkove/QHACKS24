@@ -1,5 +1,5 @@
 export default (id,username)=>{
-    return fetch(`http:localhost:3001/update/${id}`, {
+    return fetch(`http://localhost:3001/update/${id}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json"

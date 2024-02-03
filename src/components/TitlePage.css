@@ -3,7 +3,11 @@ body, h1, p {
     margin: 0;
     padding: 0;
 }
-
+.title,
+.catchphrase,
+.description {
+    font-family: 'Lato', sans-serif;
+}
 /* Center the title page content vertically and horizontally */
 .title-container {
     display: flex;
@@ -11,29 +15,31 @@ body, h1, p {
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #f6c48e; /* Set a background color for the title page */
+    background-color: #d0d0d0; /* Set a background color for the title page */
+    padding-top: 1cm; /* Adjust the top padding to start 2 cm down */
 }
 
 /* Style for the title */
 .title {
     font-size: 3rem;
     margin-bottom: 10px;
-    color: #042054; /* Set the color of the title text */
+    color: #e0475b; /* Set the color of the title text */
 }
 
 /* Style for the catchphrase */
 .catchphrase {
-    font-size: 1.5rem;
+    font-size: 1.25rem; /* Adjust font size to be smaller */
+    font-weight: bold; /* Make the text more bolded */
     margin-bottom: 20px;
     text-align: center; /* Center the catchphrase text */
-    color: #f6c48e; /* Set the color of the catchphrase text */
+    color: #192f01; /* Set the color of the catchphrase text */
 }
 
 /* Style for the description */
 .description {
     text-align: justify;
     margin-bottom: 20px;
-    color: #042054; /* Set the color of the title text */
+    color: #192f01; /* Set the color of the title text */
 
 }
 
@@ -41,4 +47,15 @@ body, h1, p {
 .logo {
     width: 200px; /* Adjust the width of the logo */
     height: auto; /* Maintain aspect ratio */
+}
+
+.signup-button {
+    background-color: #e0475b;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
 }
