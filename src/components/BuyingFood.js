@@ -5,7 +5,7 @@ import {useQuery} from "react-query";
 import updateItemRequest from '../api/updateItemRequest';
 
 
-function BuyingFood({username}) {
+function BuyingFood({username,showposts}) {
   const {isLoading, data: posts} = useQuery(
     ['posts', username],
     (username)=>readPostRequest(username)
@@ -22,7 +22,7 @@ function BuyingFood({username}) {
   return (
     isLoading ? (
       <div>Loading...</div>
-    ) : (
+    ) : showposts && (
     <>
       <button className="cart-button">Cart</button>
       <div className="posts-container">
