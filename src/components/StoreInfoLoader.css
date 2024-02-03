@@ -13,9 +13,9 @@
     justify-content: center;
     margin-bottom: 20px;
     padding: 15px;
-    border: 1px solid #ccc;
+    border: 1px solid #f8efea;
     border-radius: 10px;
-    background-color: #f6c48e;
+    background-color: #f8efea;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-size: 16px;
     width: 100%;
@@ -27,12 +27,12 @@
     margin-top: 20px;
     font-size: 18px;
     margin-bottom: 20px;
-    color: #042054;
+    color: #192f01;
 }
 
 
 .delete-button {
-    background-color: #1D8698;
+    background-color: #e0475b;
     color: white;
     padding: 8px 16px;
     border: none;
@@ -41,12 +41,12 @@
 }
 
 .delete-button:hover {
-    background-color: #042054;
+    background-color: #192f01;
 }
 
 .expires-soon-label {
-    background-color: #ffcccb;
-    color: #d8000c;
+    background-color: #f8efea;
+    color: #e0475b;
     padding: 3px 8px;
     margin-left: 10px;
     border-radius: 5px;

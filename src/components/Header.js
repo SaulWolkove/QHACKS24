@@ -27,12 +27,9 @@ function Header() {
                     <option value="help">Help</option>
                 </select>
             </div>
-            <div className="search-button">
-                {/* Search button goes here */}
-                <button>
-                    Search
-                    <img src={logo} alt="Search" className="search-icon" />
-                </button>          
+            <div className="search-container">
+                <img src={logo} alt="Search" className="search-icon" />
+                <input type="text" placeholder="Search" className="search-input" />
             </div>
             <div className="cart-button">
                 {/* Cart button goes here */}
