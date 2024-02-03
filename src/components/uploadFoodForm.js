@@ -1,3 +1,6 @@
+import React from 'react';
+import './uploadFoodForm.css';
+
 function UploadFoodForm() {
     const handleSubmit = (event) => {
         event.preventDefault();
