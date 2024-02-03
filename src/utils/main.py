@@ -18,7 +18,7 @@ def generateMealKit():
     )
 
     meal_template = PromptTemplate(
-        template="For this meal, generate a simple cooking instruction: {meal}",
+        template="For this meal, generate a simple cooking instruction: {meals}",
         input_variables=['meal']
     )
 
@@ -31,23 +31,28 @@ def generateMealKit():
 
     meal_name_chain = LLMChain(
         llm = llm,
-        prompt = prompt_template,
+        prompt = name_template,
         verbose = True,
+        output_key='meals',
     )
 
     description_chain = LLMChain(
         llm = llm,
         verbose=True,
+        prompt=meal_template,
+        output_key='meal_descrips',
     )
     
     overall_chain = SequentialChain(
-        chains = [meal_name_chain, description_chain]
+        chains = [meal_name_chain, description_chain],
         input_variables=['ingredients'],
-        output_variables=['names', 'meal_descrips'],
+        output_variables=['meals', 'meal_descrips'],
         verbose=True,
     )
 
-    output = overall_chain.run(ingredients=temp_prompt)
+    output = overall_chain({ 'ingredients': temp_prompt})
+
+    
     # have loading thang?
     print(output)
     # should get list of expired ingredients and 
