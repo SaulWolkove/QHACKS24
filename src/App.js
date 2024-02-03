@@ -34,7 +34,7 @@ function App() {
         <StoreInfoLoader username={username}/>
       
         <Routes>
-          <Route path="/cart" element={<CartPage />} />
+          <Route path="/cart" element={<CartPage username={username}/>} />
           {/* Define other routes as needed */}
         </Routes>
       </div>
