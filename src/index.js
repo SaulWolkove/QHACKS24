@@ -2,7 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import { Auth0Provider } from '@auth0/auth0-react';
+import { QueryClient, QueryClientProvider} from "react-query";
 
+const queryClient = new QueryClient()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Auth0Provider
@@ -10,7 +12,9 @@ root.render(
     clientId='9dSzhQgWQ0Wx9yKa0RJ7ZhN9rSm4rWuB'
     redirectUri={window.location.origin}>
   <React.StrictMode>
-    <App />
+  <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
   </React.StrictMode>
   </Auth0Provider>
 );
