@@ -7,7 +7,7 @@ const FoodItem = (food, group, date) => {
   const item = {
     product: food,
     group: group,
-    date: date,
+    expiration: date,
   };
   return item;
 };
@@ -22,12 +22,8 @@ function UploadFoodForm() {
     const expiryDate = event.target.expiryDate.value;
     // const imageFile = event.target.image.files[0]; // Access the uploaded image file
 
-    // console.log(name);
-
     const newFoodItem = FoodItem(name, foodGroup, expiryDate);
-    console.log(newFoodItem);
 
-    console.log(newFoodItem.group)
     addItemRequest(newFoodItem);
   };
 
