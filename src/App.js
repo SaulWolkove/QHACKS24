@@ -17,7 +17,7 @@ function App() {
       <LoginButton/>
       <LogoutButton/>
       <UserData chooseUsername={chooseUsername}/>
-      <UploadFoodForm/>
+      <UploadFoodForm username={username}/>
       <BuyingFood username={username}/>
     </div>
   );
