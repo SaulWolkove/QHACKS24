@@ -9,6 +9,7 @@ export default (item)=>{
             group: item.group,
             quantity: item.quantity,
             expiration: item.expiration,
+            user_queued: item.queued,
             // username: item.username
         })
     })

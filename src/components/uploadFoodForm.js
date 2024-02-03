@@ -8,6 +8,7 @@ const FoodItem = (food, group, date) => {
     product: food,
     group: group,
     expiration: date,
+    user_queued: false,
   };
   return item;
 };
