@@ -49,6 +49,12 @@ function TitlePage({ setShowPosts }) {
                         <LogoutButton />
                     </div>
                 )}
+                <div className="green-bar">
+                    <p>More Servises</p>
+                    <p>Partner with Us</p>
+                    <p>About us</p>
+                </div>
+                
             </div>
         </div>
     );

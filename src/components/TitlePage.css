@@ -17,8 +17,25 @@ body, h1, p {
     padding: 20px;
     background-color: #f8efea; /* Set a background color for the title page */
     padding-top: 1cm; /* Adjust the top padding to start 2 cm down */
+    position: relative;
+    padding-bottom: 2cm; 
 }
 
+.green-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2cm;
+    background-color: #192f01;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+
+}
 /* Style for the title */
 .title {
     font-size: 3rem;
