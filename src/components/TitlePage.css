@@ -10,20 +10,56 @@ body, h1, p {
 }
 /* Center the title page content vertically and horizontally */
 .title-container {
+    padding-top: 2cm; /* Add 2cm top padding */
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 20px;
-    background-color: #d0d0d0; /* Set a background color for the title page */
+    background-color: #f8efea; /* Set a background color for the title page */
     padding-top: 1cm; /* Adjust the top padding to start 2 cm down */
+    position: relative;
+    padding-bottom: 2cm; 
 }
 
+.green-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2cm;
+    background-color: #192f01;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    font-family: 'Lato', sans-serif;
+
+}
 /* Style for the title */
 .title {
     font-size: 3rem;
+    align-items: center;
+    text-align: center;
+
     margin-bottom: 10px;
     color: #e0475b; /* Set the color of the title text */
+}
+
+.team-member {
+    margin-bottom: 20px; /* Adjust as needed */
+}
+
+.catchphrase {
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+.description {
+    font-size: 16px;
 }
 
 /* Style for the catchphrase */
@@ -40,7 +76,19 @@ body, h1, p {
     text-align: justify;
     margin-bottom: 20px;
     color: #192f01; /* Set the color of the title text */
-
+}
+    
+.logo img{
+    width: 20%; /* Set width to 1/8 of the original size */
+    height: auto; /* Maintain aspect ratio */
+    border: none;
+}
+/* Add hover effect to the signup button */
+.reg-button:hover{
+    background-color: #e0475b; /* Change background color on hover */
+}
+.signup-button:hover {
+    background-color: #192f01; /* Change background color on hover */
 }
 
 /* Style for the logo */
@@ -53,6 +101,27 @@ body, h1, p {
     background-color: #e0475b;
     color: white;
     padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.reg-button {
+    background-color: #adde69;
+    color: #192f01;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.reg-here-butt{
+    background-color: #adde69;
+    color: #192f01;
+    padding: 8px 20px;
     border: none;
     border-radius: 8px;
     margin: 10px;

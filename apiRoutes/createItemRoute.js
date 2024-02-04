@@ -6,6 +6,7 @@ module.exports = async (req, res) =>{
     const {username}=req.body
     const {group} = req.body
     const user_queued = ""
+    const {measurement} = req.body
     const {expiration} = req.body
     const item = new itemModel({
         product,
@@ -13,7 +14,8 @@ module.exports = async (req, res) =>{
         username,
         group,
         user_queued,
-        expiration
+        expiration,
+        measurement,
     })
     const newItem = await item.save();
     res.json(newItem);

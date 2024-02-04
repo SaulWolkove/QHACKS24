@@ -1,35 +1,38 @@
-import UserData from './components/UserData';
+import React, { useState } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import CartPage from './components/CartPage';
+import AppTitle from './AppTitle';
 import UploadFoodForm from './components/uploadFoodForm';
-import BuyingFood from './components/BuyingFood'
+import AboutUs from './components/AboutUs';
+import Help from './components/Help';
+import BuyingFood from './components/BuyingFood';
 import TitlePage from './components/TitlePage';
-import { useState } from 'react';
-import StoreInfoLoader from './components/StoreInfoLoader';
+import UserData from './components/UserData';
 
 function App() {
-  const [username, setUsername] = useState("");
-  const [isSignUpClicked, setIsSignUpClicked] = useState(false); // Define isSignUpClicked state
-
-  function chooseUsername(name){
-    setUsername(name);
-  }
-
-  function handleSignUpClick() {
-    setIsSignUpClicked(true); // Function to handle sign-up click
-  }
-
-  const [showposts,setposts] = useState(true);
-  function setShowPosts(){
-    setposts(!showposts);
+  const [showposts, setShowPosts] = useState(true);
+  const [username, setUsername] = useState(null);
+  const setUser=(name)=>{
+    setUsername(name)
   }
 
   return (
-    <div className="App">
-      <TitlePage setShowPosts={setShowPosts} setIsSignUpClicked={setIsSignUpClicked} /> {/* Pass setIsSignUpClicked to TitlePage */}
-      <UserData chooseUsername={chooseUsername}/>
-      <UploadFoodForm username={username}/>
-      {showposts && <BuyingFood username={username} showposts={showposts}/>}
-      <StoreInfoLoader username={username}/>
-    </div>
+    <BrowserRouter>
+            <UserData setUser={setUser}/>
+
+      <Routes>
+
+        <Route path="/" element={<TitlePage username={username}/>} />
+        <Route path="/cart" element={<CartPage username={username}/>} />
+        <Route
+          path="/buying-food"
+          element={showposts ? <BuyingFood showposts={showposts} username={username} /> : null}
+        />
+        <Route path="/post-food" element={<UploadFoodForm username={username}/>} />
+        <Route path="/about-us" element={<AboutUs />} username={username}/>
+        <Route path="/help" element={<Help />} username={username}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

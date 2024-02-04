@@ -1,0 +1,36 @@
+.grocery-store-waiver {
+    font-family: 'Lato', sans-serif;
+    padding: 20px;
+    background-color: #f8efea;
+    color: #192f01; /* Text color */
+}
+
+.grocery-store-waiver h1 {
+    margin-bottom: 10px;
+    color: #e0475b; /* Title text color */
+    font-size: 2rem;
+    text-align: center;
+}
+
+.grocery-store-waiver p {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.grocery-store-waiver ul {
+    padding-left: 20px;
+}
+
+.grocery-store-waiver button {
+    background-color: #e0475b;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.grocery-store-waiver button:hover {
+    background-color: #192f01; /* Hover effect */
+}

@@ -11,42 +11,56 @@
     margin-top: 15px;
     font-size: 22px; /* Set the font size to 20 pixels */
     color: #192f01; /* Set the color of the title text */
-
+    font-family: 'Lato', sans-serif;
+    background-color: #f8efea;
 }
 .post {
     margin-bottom: 20px;
     padding: 15px;
-    border: 1px solid #f6c48e;
+    border: 1px solid #f8efea;
     border-radius: 10px;
-    background-color: #f6c48e;
+    background-color: #f8efea;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     font-size: 16px; /* Set the font size to 16 pixels */
+    font-family: 'Lato', sans-serif;
+
 }
+.logo-container {
+    text-align: center;
+    margin-top: 20px; /* Adjust margin top as needed */
+}
+
+.centered-logo {
+width: 200px; /* Adjust width as needed */
+height: auto; /* Maintain aspect ratio */
+}
+
 .post img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
     background: #f8efea;
+    font-family: 'Lato', sans-serif;
 }
 .post-info {
     margin-top: 20px;
     font-size: 18px; /* Set the font size to 16 pixels */
     margin-bottom: 20px; /* Add margin between date posted and button */
     color: #192f01; /* Set the color of the title text */
+    font-family: 'Lato', sans-serif;
 
 } 
 .cart-button {
     margin-top: 20px;
     margin-left: 20px;
-
     background-color: #adde69;
-    color: f8efea;
+    color: #f8efea;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     margin-bottom: 20px;
-
+    font-family: 'Lato', sans-serif;
 }
 .add-to-cart {
     background-color: #adde69;
@@ -61,16 +75,18 @@
 }
 
 .expiration-soon {
-    color: rgb(224,71,91);
+    color: #f8efea;
 }
 
 .expires-soon-label {
-    background-color: #ffcccb; /* Light red background */
-    color: #rgb(224,71,91); /* Darker red text for contrast */
+    background-color: #f8efea; /* Light red background */
+    color: #192f01; /* Darker red text for contrast */
     padding: 3px 8px;
     margin-left: 10px;
     border-radius: 5px;
     font-weight: bold;
+    font-family: 'Lato', sans-serif;
+
     font-size: 90%;
 }
   
