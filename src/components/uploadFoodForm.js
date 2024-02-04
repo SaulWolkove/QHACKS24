@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
-
+import StoreInfoLoader from './StoreInfoLoader';
 import "./uploadFoodForm.css";
 import addItemRequest from "../api/addItemRequest";
 import Header from './Header';  
@@ -68,69 +68,77 @@ function UploadFoodForm({ username }) {
   };
 
   return (
-    <div className="centered-container"> 
-      <img src={LogoMain} alt="LogoMain" style={{ width: '200px', height: 'auto', marginTop: '3cm' }}  />
-      <form className="upload-food-form" onSubmit={handleSubmit}>
-        <Header />
-        <div className="upload-food-title">
-          <h2 style={{ fontFamily: 'Lato, sans-serif' }}>Upload Your Food Here</h2>
-        </div>
-        
-        <label>
-          Food Label: <input type="text" name="name" required />
-        </label>
-        <label>
-          Food Group:
-          <select name="foodGroup" required>
-            <option value="">Select Food Group</option>
-            <option value="Vegetables">Vegetables</option>
-            <option value="Fruits">Fruits</option>
-            <option value="Dairy">Dairy</option>
-            <option value="Grains">Grains</option>
-            <option value="Protein">Protein</option>
-            <option value="Other">Other</option>
-          </select>
-        </label>
-        <label>
-          Expiry Date: <input type="date" name="expiryDate" required />
-        </label>
-        <label>
-          Quantity: <input type="number" name="quantity" min="1" required placeholder="Quantity" />
-        </label>
-        <div className="centered-content">
-          <div className="option-container">
+    <div>
+      <div>
+        <div className="centered-container"> 
+          <img src={LogoMain} alt="LogoMain" style={{ width: '200px', height: 'auto', marginTop: '3cm' }}  />
+          <form className="upload-food-form" onSubmit={handleSubmit}>
+            <Header />
+            <div className="upload-food-title">
+              <h2 style={{ fontFamily: 'Lato, sans-serif' }}>Upload Your Food Here</h2>
+            </div>
+            
             <label>
-              <input type="radio" name="sizeOption" value="number" checked={sizeOption === "number"} onChange={() => setSizeOption("number")} />
-              Measurement
+              Food Label: <input type="text" name="name" required />
             </label>
             <label>
-              <input type="radio" name="sizeOption" value="size" checked={sizeOption === "size"} onChange={() => setSizeOption("size")} />
-              Size
-            </label>
-          </div>
-          <div className="input-container">
-            {sizeOption === "number" && (
-              <>
-                <input type="number" name="measurement" placeholder="Amount" />
-                <select name="measurementUnit">
-                  <option value="kg">kg</option>
-                  <option value="g">g</option>
-                  <option value="lbs">lbs</option>
-                  <option value="oz">oz</option>
-                </select>
-              </>
-            )}
-            {sizeOption === "size" && (
-              <select name="sizeCategory">
-                <option value="Small">Small</option>
-                <option value="Medium">Medium</option>
-                <option value="Large">Large</option>
+              Food Group:
+              <select name="foodGroup" required>
+                <option value="">Select Food Group</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Fruits">Fruits</option>
+                <option value="Dairy">Dairy</option>
+                <option value="Grains">Grains</option>
+                <option value="Protein">Protein</option>
+                <option value="Other">Other</option>
               </select>
-            )}
-          </div>
-          <button type="submit" disabled={isSubmitting}>{isSubmitting ? 'Submitting...' : 'Submit'}</button>
+            </label>
+            <label>
+              Expiry Date: <input type="date" name="expiryDate" required />
+            </label>
+            <label>
+              Quantity: <input type="number" name="quantity" min="1" required placeholder="Quantity" />
+            </label>
+            <div className="centered-content">
+              <div className="option-container">
+                <label>
+                  <input type="radio" name="sizeOption" value="number" checked={sizeOption === "number"} onChange={() => setSizeOption("number")} />
+                  Measurement
+                </label>
+                <label>
+                  <input type="radio" name="sizeOption" value="size" checked={sizeOption === "size"} onChange={() => setSizeOption("size")} />
+                  Size
+                </label>
+              </div>
+              <div className="input-container">
+                {sizeOption === "number" && (
+                  <>
+                    <input type="number" name="measurement" placeholder="Amount" />
+                    <select name="measurementUnit">
+                      <option value="kg">kg</option>
+                      <option value="g">g</option>
+                      <option value="lbs">lbs</option>
+                      <option value="oz">oz</option>
+                    </select>
+                  </>
+                )}
+                {sizeOption === "size" && (
+                  <select name="sizeCategory">
+                    <option value="Small">Small</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Large">Large</option>
+                  </select>
+                )}
+              </div>
+              <button type="submit" disabled={isSubmitting}>{isSubmitting ? 'Submitting...' : 'Submit'}</button>
+            </div>
+            
+          </form>
         </div>
-      </form>
+      </div>
+      <div className="centered-container-gap" >
+        <StoreInfoLoader username={username} />
+      </div>
     </div>
   );
 }
