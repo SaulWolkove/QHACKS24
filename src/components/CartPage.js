@@ -56,6 +56,7 @@ function CartPage({ username }) {
       }
     });
 
+    console.log(dictionary)
     return dictionary;
   };
 
