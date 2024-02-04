@@ -7,9 +7,7 @@ import logo2 from './cartIcon2.png.jpg';
 
 function Header() {
     const navigate = useNavigate();    
-    const handleProfileClick = () => {
-        navigate('/profile'); // Redirect to the help page
-    };
+    
     const handleTitlePageClick  = () => {
         navigate('/'); // Redirect to the help page
     };
@@ -67,10 +65,7 @@ function Header() {
                 </button>
             </div>
             <div className="profile-button" style={{ marginRight: '0.95cm' }}>
-                <button onClick={handleProfileClick}>
-                    {/* Link to the profile page */}
-                    <Link to="/profile">Profile</Link>
-                </button>
+                
             </div>
         </div>
     );

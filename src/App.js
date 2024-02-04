@@ -8,7 +8,6 @@ import Help from './components/Help';
 import BuyingFood from './components/BuyingFood';
 import TitlePage from './components/TitlePage';
 import UserData from './components/UserData';
-import ProfilePage from './components/ProfilePage'; // Import the ProfilePage component
 
 function App() {
   const [showposts, setShowPosts] = useState(true);
@@ -31,7 +30,6 @@ function App() {
         <Route path="/post-food" element={<UploadFoodForm username={username}/>} />
         <Route path="/about-us" element={<AboutUs />} username={username}/>
         <Route path="/help" element={<Help />} username={username}/>
-        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -60,8 +60,9 @@ function CartPage({ username }) {
   };
 
   // handle add to cart action
-  const handleAddToCart = (id) => {
-    updateItemRequest(id, username);
+  const adding = false
+  const handleRemoveFromCart = (id) => {
+    updateItemRequest(id, username, adding);
     // Increment the cart item count when an item is added to the cart
     setCartItemCount(prevCount => prevCount + 1);
   };
@@ -77,40 +78,33 @@ function CartPage({ username }) {
       {/* Render the header component */}
       <Header />
       <div className="cart-label-container">     
-        <h2 style={{ fontFamily: 'Lato, sans-serif', marginTop: '2cm' }}>Cart ({cartItemCount} items)</h2> {/* Display the number of items in the cart */}
+        <h2 style={{ fontFamily: 'Lato, sans-serif', marginTop: '2cm' }}>Cart</h2> {/* Display the number of items in the cart */}
       </div>
       {isLoading ? (
         <div>Loading...</div>
       ) : (
         <>
           <div className="posts-container">
-            {Object.entries(expiringItemsByUser).map(([username, items]) => (
-              <div key={username}>
-                <h3>{username}</h3>
-                <ul>
-                  {items.map(item => (
-                    <li key={item._id}>{item.product} expires soon!</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+            
             <div className="post-grid">
               {posts.map((post) => (
-                <div key={post._id} className="post">
-                  <PlaceholderImage />
-                  <div className="post-info">
-                    <p>Product: {post.product}</p>
-                    <p>Quantity: {post.quantity}</p>
-                    <p>User: {post.username}</p>
-                    <p>
-                      Expiration: {post.expiration}
-                      {getDaysDifference(post.expiration) < 2 && <span className="expires-soon-label"> EXPIRES SOON</span>}
-                    </p>
+                post.user_queued == username && (
+                  <div key={post._id} className="post">
+                    <PlaceholderImage />
+                    <div className="post-info">
+                      <p>Product: {post.product}</p>
+                      <p>Quantity: {post.quantity}</p>
+                      <p>User: {post.username}</p>
+                      <p>
+                        Expiration: {post.expiration}
+                        {getDaysDifference(post.expiration) < 2 && <span className="expires-soon-label"> EXPIRES SOON</span>}
+                      </p>
+                    </div>
+                    <div className="post-button-group">
+                      <button className="add-to-cart" onClick={() => handleRemoveFromCart(post._id)}>Remove From Cart</button>
+                    </div>
                   </div>
-                  <div className="post-button-group">
-                    <button className="add-to-cart" onClick={() => handleAddToCart(post._id)}>Add to Cart</button>
-                  </div>
-                </div>
+                )
               ))}
             </div>
           </div>

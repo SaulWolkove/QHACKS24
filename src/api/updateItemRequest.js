@@ -1,4 +1,9 @@
-export default (id,username)=>{
+export default (id,username,addingToCart)=>{
+    if(addingToCart){
+        username = username;
+    }else{
+        username=""
+    }
     return fetch(`http://localhost:3001/update/${id}`, {
         method: "PUT",
         headers: {

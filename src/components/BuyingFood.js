@@ -57,9 +57,9 @@ function BuyingFood({ username }) {
     return dictionary;
   }, [posts, currentDate]); // Recalculate when posts or currentDate changes
 
-  // handle add to cart action
+  const addingToCart = true
   const handleAddToCart = (id) => {
-    updateItemRequest(id, username).then(() => {
+    updateItemRequest(id, username,addingToCart).then(() => {
       // Optionally invalidate or refetch posts query to reflect changes
     });
   };
@@ -80,24 +80,26 @@ function BuyingFood({ username }) {
       </div>
       <div className="posts-container">
         {posts.map((post) => (
-          <div key={post._id} className="post">
-            <PlaceholderImage />
-            <div className="post-info">
-              <p>Product: {post.product}</p>
-              <p>Quantity: {post.quantity}</p>
-              <p>Expiration: {post.expiration}</p>
-              {getDaysDifference(post.expiration) < 2 && (
-                <span className="expires-soon-label">EXPIRES SOON</span>
-              )}
-              <br />
-              <p>Posted By: {post.username ? post.username : "N/A"}</p>
+          (post.user_queued == "" &&
+            <div key={post._id} className="post">
+              <PlaceholderImage />
+              <div className="post-info">
+                <p>Product: {post.product}</p>
+                <p>Quantity: {post.quantity}</p>
+                <p>Expiration: {post.expiration}</p>
+                {getDaysDifference(post.expiration) < 2 && (
+                  <span className="expires-soon-label">EXPIRES SOON</span>
+                )}
+                <br />
+                <p>Posted By: {post.username ? post.username : "N/A"}</p>
+              </div>
+              <div className="post-button-group">
+                <button className="add-to-cart" onClick={() => handleAddToCart(post._id)}>
+                  Add to Cart
+                </button>
+              </div>
             </div>
-            <div className="post-button-group">
-              <button className="add-to-cart" onClick={() => handleAddToCart(post._id)}>
-                Add to Cart
-              </button>
-            </div>
-          </div>
+          )
         ))}
       </div>
     </>
