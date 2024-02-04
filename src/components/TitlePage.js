@@ -1,24 +1,22 @@
-import React, { useState, useQuery } from "react";
+import React, { useState } from "react";
 import "./TitlePage.css"; // Import the CSS file for styling
 import LoginButton from "./LoginButton"; // Import the LoginButton component
 import Header from "./Header";
 import LogoMain from "./LogoMain.png";
 import RegisterBusinessForm from "./RegisterBusinessForm";
 import getUserRequest from '../api/getUserRequest';
+import {useQuery} from "react-query"
 
 function TitlePage({ setShowPosts, username }) {
   // State to track whether sign-up button is clicked
   const [isButtonsClicked, setIsButtonsClicked] = useState(false);
-
+  console.log(username)
   const { isLoading, data: user} = useQuery(['user', username], (username) => getUserRequest(username))
-  if (!isLoading){
-    console.log(username)
-  }
+  
 
     const handleSignUpClick = () => {
         setIsButtonsClicked(true);
     };
-
     return (
         <div className="title-container">
             <Header /> 
