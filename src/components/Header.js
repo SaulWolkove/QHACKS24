@@ -57,7 +57,7 @@ function Header() {
             <div className="fresh-save">
                 FreshSave
             </div>
-            <div className="cart-button button">
+            <div className="cart-button button" style={{ marginRight: '0.95cm' }}>
                 {/* Cart button goes here */}
                 <button onClick={handleCartClick}>
                     <Link to="/cart">Cart</Link>
