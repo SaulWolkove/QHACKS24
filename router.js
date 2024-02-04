@@ -20,7 +20,7 @@ router.put("/update/:id", updateItemRoute);
 router.get("/getCart/:id", updateItemRoute);
 router.post("/user", createUserRoute);
 router.post("/user/post/:id", updateAccountRoute)
-router.get("/user", getAccountRoute)
+router.get("/user/:id", getAccountRoute)
 
 
 module.exports = router
