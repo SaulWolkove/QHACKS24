@@ -18,8 +18,9 @@ function App() {
 
   return (
     <BrowserRouter>
+            <UserData setUser={setUser}/>
+
       <Routes>
-        <UserData setUser={setUser}/>
 
         <Route path="/" element={<TitlePage username={username}/>} />
         <Route path="/cart" element={<CartPage username={username}/>} />

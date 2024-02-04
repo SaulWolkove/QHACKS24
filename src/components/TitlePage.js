@@ -25,6 +25,7 @@ function TitlePage({ setShowPosts, username }) {
   const handleCloseRegisterForm = () => {
     setIsRegisterFormOpen(false);
   };
+    console.log(username)
     return (
         <div className="title-container">
             <Header /> 
