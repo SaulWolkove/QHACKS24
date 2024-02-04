@@ -9,6 +9,7 @@ export default (item)=>{
             group: item.group,
             quantity: item.quantity,
             expiration: item.expiration,
+            measurement: item.measurement,
             user_queued: item.queued,
             username: item.username
         })

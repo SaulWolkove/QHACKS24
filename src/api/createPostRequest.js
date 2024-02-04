@@ -7,7 +7,8 @@ export default (item)=>{
         body: JSON.stringify({
             product: item.product,
             group: item.group,
-            quantity: item.quantity, // this will either be size or a number and unit
+            quantity: item.quantity,
+            measurement: item.measurement,
             expiration: item.expiration,
             user_queued: item.queued,
             username: item.username,
