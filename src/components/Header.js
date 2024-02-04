@@ -7,7 +7,9 @@ import logo2 from './cartIcon2.png.jpg';
 
 function Header() {
     const navigate = useNavigate();    
-
+    const handleProfileClick = () => {
+        navigate('/profile'); // Redirect to the help page
+    };
     const handleTitlePageClick  = () => {
         navigate('/'); // Redirect to the help page
     };
@@ -57,11 +59,17 @@ function Header() {
             <div className="fresh-save">
                 FreshSave
             </div>
-            <div className="cart-button button" style={{ marginRight: '0.95cm' }}>
+            <div className="cart-button button">
                 {/* Cart button goes here */}
                 <button onClick={handleCartClick}>
                     <Link to="/cart">Cart</Link>
                     <img src={logo2} alt="Cart" className="cart-icon" />
+                </button>
+            </div>
+            <div className="profile-button" style={{ marginRight: '0.95cm' }}>
+                <button onClick={handleProfileClick}>
+                    {/* Link to the profile page */}
+                    <Link to="/profile">Profile</Link>
                 </button>
             </div>
         </div>

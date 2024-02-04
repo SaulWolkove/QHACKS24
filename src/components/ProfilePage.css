@@ -1,0 +1,50 @@
+.upload-food-form {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #f8efea;
+    font-family: 'Lato', sans-serif;
+    padding-top: 0;
+}
+
+.upload-food-title {
+    text-align: center;
+    color: #192f01;
+    font-size: 24px;
+}
+
+.option-container, 
+.input-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%; 
+}
+
+.upload-food-form label {
+    display: block; 
+    margin-bottom: 10px; 
+    width: 100%; 
+}
+.centered-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh; /* Adjust this value based on your requirements */
+}
+
+.upload-food-form button[type="submit"] {
+    width: 100%; 
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #e0475b;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.upload-food-form button[type="submit"]:hover {
+    background-color: #192f01;
+}
