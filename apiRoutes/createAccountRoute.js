@@ -1,7 +1,6 @@
 const userModel = require("../models/userModel")
 
 module.exports = async (req, res) =>{
-    console.log
     const {email}=req.body
     const {name}=req.body
     const {accountType}=req.body
