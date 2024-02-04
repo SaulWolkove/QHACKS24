@@ -53,6 +53,9 @@ function UploadFoodForm({ username }) {
     );
     addItemRequest(newFoodItem).then((response) => console.log(response));
   };
+  const handlePostFoodClick = () => {
+    window.open('/upload-food-form', '_blank'); // Open the UploadFoodForm page in a new tab
+  };
 
   return (
     <form className="upload-food-form" onSubmit={handleSubmit}>
