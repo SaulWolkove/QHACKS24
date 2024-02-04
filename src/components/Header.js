@@ -1,12 +1,13 @@
 import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link } from 'react-router-dom'; // Import Link for routing
+import { Link, useHistory } from 'react-router-dom'; // Import Link and useHistory for routing
 import './Header.css'; // Import the CSS file for styling
 import logo from './searchIcon2.jpg';
 import logo2 from './cartIcon2.png.jpg';
 
 function Header() {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+    const history = useHistory();    
 
     const handleLogin = () => {
         if (isAuthenticated) {
@@ -15,15 +16,25 @@ function Header() {
             loginWithRedirect();
         }
     };
+
     const handleCartClick = () => {
-        window.open('/cart', '_blank'); // Open the cart page in a new tab
+        history.push('/cart'); // Redirect to the cart page
+    };
+
+    const handlePostFoodClick = () => {
+        history.push('/post-food'); // Redirect to the upload food form page
     };
 
     return (
         <div className="header">
             <div className="dropdown">
                 {/* Dropdown menu content goes here */}
-                <select>
+                <select onChange={(e) => {
+                    const selectedOption = e.target.value;
+                    if (selectedOption === 'post_food') {
+                        handlePostFoodClick();
+                    }
+                }}>
                     <option value="select_an_Option">Select an Option</option>
                     <option value="buy_food">Buy Food</option>
                     <option value="post_food">Post Food</option>
@@ -37,7 +48,7 @@ function Header() {
             </div>
             <div className="cart-button">
                 {/* Cart button goes here */}
-                <button>
+                <button onClick={handleCartClick}>
                     <Link to="/cart">Cart</Link>
                     <img src={logo2} alt="Cart" className="cart-icon" />
                 </button>
