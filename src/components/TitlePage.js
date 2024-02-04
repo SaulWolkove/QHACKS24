@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useQuery } from 'react-query'
 import "./TitlePage.css"; // Import the CSS file for styling
 import LoginButton from "./LoginButton"; // Import the LoginButton component
 import Header from "./Header";
@@ -9,8 +10,10 @@ import getUserRequest from "../api/getUserRequest";
 function TitlePage({ setShowPosts, username }) {
   // State to track whether sign-up button is clicked
   const [isButtonsClicked, setIsButtonsClicked] = useState(false);
-  const accountType = 
-
+  const { isLoading, data: user} = useQuery(['user', username], (username) => getUserRequest(username))
+  if (!isLoading){
+    console.log(user)
+  }
   const handleSignUpClick = () => {
     setIsButtonsClicked(true);
   };
@@ -75,7 +78,7 @@ function TitlePage({ setShowPosts, username }) {
           <RegisterBusinessForm />
         </div>
       </div>
-      {username && }
+      {/* {username && } */}
       <div className="green-bar">
         <RegisterBusinessForm />
       </div>
