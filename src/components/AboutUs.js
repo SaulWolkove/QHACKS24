@@ -41,7 +41,7 @@ function AboutUS({ setShowPosts }) {
                 <div className="team-member">
                     <p className="catchphrase">Ben Hilderman 😏</p>
                     <div className="description">
-                        <p>I am a second year Computing student. The process of making this app was fun and challenging!</p>
+                        <p>I am a second year Computing student. The process of making this app was fun 😏</p>
                     </div>
                 </div>
             </div>
