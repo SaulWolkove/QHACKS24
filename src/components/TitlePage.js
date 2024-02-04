@@ -13,7 +13,7 @@ function TitlePage({ setShowPosts, username }) {
   const [isRegisterFormOpen, setIsRegisterFormOpen] = useState(false); // State to track whether the register form is open
 
   const { isLoading, data: user } = useQuery(["user", username], (username) =>
-    getUserRequest(user)
+    getUserRequest(username.queryKey[1])
   );
 
   const handleSignUpClick = () => {
