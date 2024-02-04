@@ -1,12 +1,9 @@
 import React, { useState } from "react";
-import { useAuth0 } from "@auth0/auth0-react";
 import "./TitlePage.css"; // Import the CSS file for styling
 import LoginButton from "./LoginButton"; // Import the LoginButton component
 import Header from "./Header";
 import LogoMain from "./LogoMain.png";
-import { Button, Modal } from "react";
 import RegisterBusinessForm from "./RegisterBusinessForm";
-import Footer from "./Footer";
 
 function TitlePage({ setShowPosts }) {
   // State to track whether sign-up button is clicked
