@@ -25,6 +25,10 @@ function Header() {
         navigate('/post-food'); // Redirect to the upload food form page
     };
 
+    const handleAboutUsClick = () => {
+        navigate('/about-us'); // Change '/about-us' to the actual route for About Us page
+    };
+
     return (
         <div className="header">
             <div className="dropdown">
@@ -33,6 +37,8 @@ function Header() {
                     const selectedOption = e.target.value;
                     if (selectedOption === 'post_food') {
                         handlePostFoodClick();
+                    } else if (selectedOption === 'about') {
+                        handleAboutUsClick();
                     }
                 }}>
                     <option value="select_an_Option">Select an Option</option>
