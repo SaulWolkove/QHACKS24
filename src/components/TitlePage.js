@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import './TitlePage.css'; // Import the CSS file for styling
-import LoginButton from './LoginButton'; // Import the LoginButton component
-import LogoutButton from './LogoutButton'; // Import the LogoutButton component
-import CreateAccountButton  from './CreateAccountButton'; // Import the LogoutButton component
-import Header from './Header';
-import LogoMain from './LogoMain.png';
-
+import "./TitlePage.css"; // Import the CSS file for styling
+import LoginButton from "./LoginButton"; // Import the LoginButton component
+import Header from "./Header";
+import LogoMain from "./LogoMain.png";
+import { Button, Modal } from "react";
+import RegisterBusinessForm from "./RegisterBusinessForm";
+import Footer from "./Footer";
 
 function TitlePage({ setShowPosts }) {
-    // State to track whether sign-up button is clicked
-    const [isButtonsClicked, setIsButtonsClicked] = useState(false);
+  // State to track whether sign-up button is clicked
+  const [isButtonsClicked, setIsButtonsClicked] = useState(false);
 
     const handleSignUpClick = () => {
         setIsButtonsClicked(true);
@@ -33,31 +33,22 @@ function TitlePage({ setShowPosts }) {
                     <p>Join us in our mission to create a world where no one goes hungry, where every bite has the power to nourish, uplift, and inspire hope. Together, let's make a positive impact and build a brighter future for individuals and families in need. Welcome to FreshSave, where every meal begins with compassion and ends with hope.</p>
                 </div>
                 {/* Add buttons section */}
-                {!isButtonsClicked && (
-                    <div className="buttons-container">
-                        {/* Set onClick event to handle sign-up click */}
-                        <button className="signup-button" onClick={handleSignUpClick}>Sign up as a grocery store</button>
-                        {/* Set onClick event to handle sign-up click */}
-                        <button className="signup-button" onClick={() => { setShowPosts(); handleSignUpClick(); }}>Sign up as a non-for-profit</button>
-                    </div>
-                )}
                 {/* Conditionally render the LoginButton component */}
-                {isButtonsClicked && (
+                {!isButtonsClicked && (
                     <div>
-                        <CreateAccountButton />
                         <LoginButton />
-                        <LogoutButton />
                     </div>
                 )}
                 <div className="green-bar">
-                    <p>More Services</p>
-                    <p>Partner with Us</p>
-                    <p>About us</p>
+                    <RegisterBusinessForm />
                 </div>
-                
             </div>
+        {/* Conditionally render the LoginButton component */}
+        <div className="green-bar">
+          <RegisterBusinessForm />
         </div>
-    );
+      </div>
+  );
 }
 
 export default TitlePage;
