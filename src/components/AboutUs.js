@@ -23,7 +23,7 @@ function AboutUS({ setShowPosts }) {
                 <div className="team-member">
                     <p className="catchphrase">Emese Elkind</p>
                     <div className="description">
-                        <p>I am a second year Biomedical Computing student.</p>
+                        <p>I am a second year Biomedical Computing student. I love to paint and read! I am a figure skater and a rock climber! This was such a fun project to do with my team!</p>
                     </div>
                 </div>
                 <div className="team-member">
