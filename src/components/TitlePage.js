@@ -75,7 +75,7 @@ function TitlePage({ setShowPosts, username }) {
               <span className="close" onClick={handleCloseRegisterForm}>
                 &times;
               </span>
-              <RegisterBusinessForm />
+              <RegisterBusinessForm id={user[0]._id}/>
             </div>
           </div>
         )}
