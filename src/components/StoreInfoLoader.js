@@ -51,7 +51,7 @@ export default function StoreInfoLoader({ username }) {
                     </div>
                 ))
             ) : (
-                <p>No items found.</p>
+                <p></p>
             )}
         </div>
     );

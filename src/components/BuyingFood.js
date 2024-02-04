@@ -3,8 +3,8 @@ import "./BuyingFood.css";
 import readPostRequest from "../api/readPostRequest";
 import { useQuery } from "react-query";
 import updateItemRequest from "../api/updateItemRequest";
-import Header from './Header';
-import LogoMain from './LogoMain.png';
+import Header from "./Header";
+import LogoMain from "./LogoMain.png";
 
 function BuyingFood({ username }) {
   // state for posts
@@ -54,6 +54,8 @@ function BuyingFood({ username }) {
         dictionary[post.username].push(post);
       }
     });
+
+    console.log(dictionary);
     return dictionary;
   }, [posts, currentDate]); // Recalculate when posts or currentDate changes
 
@@ -93,7 +95,10 @@ function BuyingFood({ username }) {
               <p>Posted By: {post.username ? post.username : "N/A"}</p>
             </div>
             <div className="post-button-group">
-              <button className="add-to-cart" onClick={() => handleAddToCart(post._id)}>
+              <button
+                className="add-to-cart"
+                onClick={() => handleAddToCart(post._id)}
+              >
                 Add to Cart
               </button>
             </div>
