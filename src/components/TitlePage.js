@@ -8,9 +8,9 @@ import getUserRequest from "../api/getUserRequest";
 import { useQuery } from "react-query";
 import addUserRequest from "../api/addUserRequest";
 
-function TitlePage({ setShowPosts, username }) {
+function TitlePage({ setShowPosts, username, setAccountType }) {
   // State to track whether sign-up button is clicked
-  const [userUpdated, setUserUpdate] = useState(false);
+  const [isButtonsClicked, setIsButtonsClicked] = useState(false);
   const [isRegisterFormOpen, setIsRegisterFormOpen] = useState(false); // State to track whether the register form is open
   
   const { isLoading, data: user } = useQuery(
@@ -24,12 +24,9 @@ function TitlePage({ setShowPosts, username }) {
     }
   );
 
-  const update = () =>{
-    addUserRequest(username)
-    setUserUpdate(true)
-  }
-
-
+  const handleSignUpClick = () => {
+    setIsButtonsClicked(true);
+  };
 
   const handleOpenRegisterForm = () => {
     setIsRegisterFormOpen(true);
@@ -77,7 +74,7 @@ function TitlePage({ setShowPosts, username }) {
               <span className="close" onClick={handleCloseRegisterForm}>
                 &times;
               </span>
-              <RegisterBusinessForm id={user[0]._id}/>
+              <RegisterBusinessForm id={user[0]._id} handleClose={handleCloseRegisterForm}/>
             </div>
           </div>
         )}
