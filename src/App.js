@@ -4,6 +4,8 @@ import CartPage from './components/CartPage';
 import AppTitle from './AppTitle';
 import Header from './components/Header';
 import UploadFoodForm from './components/uploadFoodForm';
+import AboutUs from './components/AboutUs'; // Import the AboutUs component
+import Help from './components/Help'; // Import the Help component
 
 function App() {
   return (
@@ -11,11 +13,9 @@ function App() {
       <Routes>
         <Route path="/" element={<AppTitle />} />
         <Route path="/cart" element={<CartPage />} />
-        
-        <Route path="/Header" element={<Header />} />
-        <Route path="/upload-food-form" element={<UploadFoodForm />} /> {/* Add route for UploadFoodForm */}
-
-        {/* Define other routes as needed */}
+        <Route path="/post-food" element={<UploadFoodForm />} /> {/* Define the route for /post-food */}
+        <Route path="/about-us" element={<AboutUs />} /> {/* Add the route for About Us page */}
+        <Route path="/help" element={<Help />} /> {/* Add the route for Help page */}
       </Routes>
     </BrowserRouter>
   );

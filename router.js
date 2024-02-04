@@ -6,7 +6,9 @@ const createPostRoute = require("./apiRoutes/createPostRoute")
 const readPostRoute = require("./apiRoutes/readPostRoute")
 const deletePostRoute = require("./apiRoutes/deletePostRoute")
 const updateItemRoute = require("./apiRoutes/updateItemRoute")
-
+const createUserRoute = require("./apiRoutes/createAccountRoute")
+const getAccountRoute = require("./apiRoutes/getAccountRoute")
+const updateAccountRoute = require("./apiRoutes/updateAccountRoute")
 const router = express.Router();
 router.post("/addItem", createItemRoute);
 router.get("/getItem",readItemRoute);
@@ -16,6 +18,9 @@ router.get("/readPost",readPostRoute);
 router.delete("/post/:id",deletePostRoute);
 router.put("/update/:id", updateItemRoute);
 router.get("/getCart/:id", updateItemRoute);
+router.post("/user", createUserRoute);
+router.post("/user/post/:id", updateAccountRoute)
+router.get("./user", getAccountRoute)
 
 
 module.exports = router

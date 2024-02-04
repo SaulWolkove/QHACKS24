@@ -7,7 +7,7 @@ import logo2 from './cartIcon2.png.jpg';
 
 function Header() {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-    const history = useNavigate();    
+    const navigate = useNavigate();    
 
     const handleLogin = () => {
         if (isAuthenticated) {
@@ -18,11 +18,18 @@ function Header() {
     };
 
     const handleCartClick = () => {
-        history.push('/cart'); // Redirect to the cart page
+        navigate('/cart'); // Redirect to the cart page
     };
 
     const handlePostFoodClick = () => {
-        history.push('/post-food'); // Redirect to the upload food form page
+        navigate('/post-food'); // Redirect to the upload food form page
+    };
+
+    const handleAboutUsClick = () => {
+        navigate('/about-us'); // Change '/about-us' to the actual route for About Us page
+    };
+    const handleHelpClick  = () => {
+        navigate('/help'); // Redirect to the help page
     };
 
     return (
@@ -33,6 +40,10 @@ function Header() {
                     const selectedOption = e.target.value;
                     if (selectedOption === 'post_food') {
                         handlePostFoodClick();
+                    } else if (selectedOption === 'about') {
+                        handleAboutUsClick();
+                    }else if (selectedOption === 'help') {
+                        handleHelpClick();
                     }
                 }}>
                     <option value="select_an_Option">Select an Option</option>
