@@ -31,15 +31,13 @@ function TitlePage({ setShowPosts, username }) {
                 
                 {/* Conditionally render the LoginButton component */}
                 {!isButtonsClicked && <LoginButton />}
-                
+
                 <div className="green-bar">
                     <RegisterBusinessForm />
                 </div>
             </div>
         {/* Conditionally render the LoginButton component */}
-        <div className="green-bar">
-          <RegisterBusinessForm />
-        </div>
+        
       </div>
   );
 }
