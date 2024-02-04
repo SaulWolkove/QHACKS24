@@ -12,8 +12,7 @@ function TitlePage({ setShowPosts, username }) {
   const [isButtonsClicked, setIsButtonsClicked] = useState(false);
   const [isRegisterFormOpen, setIsRegisterFormOpen] = useState(false); // State to track whether the register form is open
 
-  console.log(username)
-  const { isLoading, data: user} = useQuery(['user', username], (username) => getUserRequest(username))
+  //const { isLoading, data: user} = useQuery(['user', username], (username) => getUserRequest(username))
   
     const handleSignUpClick = () => {
         setIsButtonsClicked(true);
