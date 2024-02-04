@@ -10,24 +10,26 @@ import addUserRequest from "../api/addUserRequest";
 
 function TitlePage({ setShowPosts, username }) {
   // State to track whether sign-up button is clicked
-  const [isButtonsClicked, setIsButtonsClicked] = useState(false);
+  const [userUpdated, setUserUpdate] = useState(false);
   const [isRegisterFormOpen, setIsRegisterFormOpen] = useState(false); // State to track whether the register form is open
-
+  
   const { isLoading, data: user } = useQuery(
     ["user", username],
     (username) => getUserRequest(username.queryKey[1]),
     {
       onSuccess: (data) => {
-        if (!user) {
-          addUserRequest(username)
-        }
+
+        !isLoading && !userUpdated && update()
       },
     }
   );
 
-  const handleSignUpClick = () => {
-    setIsButtonsClicked(true);
-  };
+  const update = () =>{
+    addUserRequest(username)
+    setUserUpdate(true)
+  }
+
+
 
   const handleOpenRegisterForm = () => {
     setIsRegisterFormOpen(true);
