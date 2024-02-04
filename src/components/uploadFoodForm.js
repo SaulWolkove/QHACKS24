@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
 import "./uploadFoodForm.css";
 import addItemRequest from "../api/addItemRequest";
+import Header from './Header';  
+
 
 const FoodItem = (
   food,
@@ -25,6 +29,7 @@ const FoodItem = (
 
 function UploadFoodForm({ username }) {
   const [sizeOption, setSizeOption] = useState("number");
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -54,12 +59,16 @@ function UploadFoodForm({ username }) {
     addItemRequest(newFoodItem).then((response) => console.log(response));
   };
   const handlePostFoodClick = () => {
-    window.open('/upload-food-form', '_blank'); // Open the UploadFoodForm page in a new tab
+    navigate('/post-food'); // Navigate to /post-food route
   };
-
+  
   return (
     <form className="upload-food-form" onSubmit={handleSubmit}>
-      <h1 className="upload-food-title">Upload Your Food Here</h1>
+      <Header />
+      <div className="upload-food-title">
+        <h2 style={{ fontFamily: 'Lato, sans-serif', marginTop: '2cm' }}>Upload Your Food Here</h2>
+      </div>
+      
       <label>
         Food Label: <input type="text" name="name" required />
       </label>

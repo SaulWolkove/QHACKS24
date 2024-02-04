@@ -11,11 +11,8 @@ function App() {
       <Routes>
         <Route path="/" element={<AppTitle />} />
         <Route path="/cart" element={<CartPage />} />
-        
-        <Route path="/Header" element={<Header />} />
-        <Route path="/upload-food-form" element={<UploadFoodForm />} /> {/* Add route for UploadFoodForm */}
+        <Route path="/post-food" element={<UploadFoodForm />} /> {/* Define the route for /post-food */}
 
-        {/* Define other routes as needed */}
       </Routes>
     </BrowserRouter>
   );
