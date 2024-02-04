@@ -79,16 +79,6 @@ function BuyingFood({ username }) {
         <PlaceholderImage />
       </div>
       <div className="posts-container">
-        {Object.entries(expiringItemsByUser).map(([username, items]) => (
-          <div key={username}>
-            <h3>{username}</h3>
-            <ul>
-              {items.map((item) => (
-                <li key={item._id}>{item.product} expires soon!</li>
-              ))}
-            </ul>
-          </div>
-        ))}
         {posts.map((post) => (
           <div key={post._id} className="post">
             <PlaceholderImage />
