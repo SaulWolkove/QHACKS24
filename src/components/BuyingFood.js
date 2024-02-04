@@ -72,9 +72,7 @@ function BuyingFood({ username }) {
 
   // placeholder image component
   const PlaceholderImage = () => (
-    <div style={{ height: "200px", backgroundColor: "#eaeaea" }}>
-      Image placeholder
-    </div>
+    <img src={LogoMain} alt="Logo" className="centered-logo" />
   );
 
   // render loading state or posts list
@@ -83,7 +81,6 @@ function BuyingFood({ username }) {
   ) : (
     <>
       <Header />
-      <button className="cart-button">Cart</button>
       <div className="logo-container">
         <img src={LogoMain} alt="Logo" className="centered-logo" />
       </div>
