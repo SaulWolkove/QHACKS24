@@ -15,6 +15,7 @@ const Business = (username, name, location,id) => {
 
 function RegisterBusinessForm({ id }) {
   const handleSubmit = (event) => {
+    console.log('check')
     event.preventDefault()
     const form = event.target;
     const name = form.businessName.value;

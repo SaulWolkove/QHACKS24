@@ -45,6 +45,17 @@
     font-size: 16px;
     text-decoration: underline;
 }
+.profile-button button{
+    width: 100px;
+    padding: 0.5rem 1rem; /* Adjust padding as needed */
+
+    background-color: #adde69;
+    color: #192f01;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: underline;
+}
 
 .cart-icon {
     width: 40%; /* Set width to 1/8 of the original size */

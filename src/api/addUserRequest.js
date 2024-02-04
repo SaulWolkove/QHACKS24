@@ -5,9 +5,8 @@ export default (user)=>{
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            email: user.email,
-            accountType: user.accountType,
-            name: user.name
+            email: user,
+            accountType: "user",
         })
     })
     .then(response=>response.json())
