@@ -3,24 +3,26 @@ import React from "react";
 import updateUserRequest from '../api/updateUserRequest'
 import "./TitlePage.css";
 
-const Business = (username, name, location) => {
+const Business = (username, name, location,id) => {
   return {
     email: username,
     accountType: "business",
     corp: name,
     location: location,
+    id:id
   };
 };
 
-function RegisterBusinessForm({ username }) {
+function RegisterBusinessForm({ id }) {
   const handleSubmit = (event) => {
+    event.preventDefault()
     const form = event.target;
     const name = form.businessName.value;
     const accountType = "business";
     const location = form.location.value;
 
     // need to pass in account type? or just set constant
-    const newBusiness = Business(name, accountType, location);
+    const newBusiness = Business(name, accountType, location, id);
     updateUserRequest(newBusiness)
   };
 
