@@ -128,9 +128,6 @@ function UploadFoodForm({ username }) {
               </select>
             )}
           </div>
-          <label>
-            Picture (optional): <input type="file" name="image" accept="image/*" />
-          </label>
           <button type="submit" disabled={isSubmitting}>{isSubmitting ? 'Submitting...' : 'Submit'}</button>
         </div>
       </form>

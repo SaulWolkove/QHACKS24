@@ -55,6 +55,7 @@ body, h1, p {
 .catchphrase {
     font-size: 18px;
     font-weight: bold;
+    font-family: 'Lato', sans-serif;
 }
 
 .description {
@@ -83,6 +84,9 @@ body, h1, p {
     border: none;
 }
 /* Add hover effect to the signup button */
+.reg-button:hover{
+    background-color: #e0475b; /* Change background color on hover */
+}
 .signup-button:hover {
     background-color: #192f01; /* Change background color on hover */
 }
@@ -97,6 +101,27 @@ body, h1, p {
     background-color: #e0475b;
     color: white;
     padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.reg-button {
+    background-color: #adde69;
+    color: #192f01;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 18px;
+}
+.reg-here-butt{
+    background-color: #adde69;
+    color: #192f01;
+    padding: 8px 20px;
     border: none;
     border-radius: 8px;
     margin: 10px;

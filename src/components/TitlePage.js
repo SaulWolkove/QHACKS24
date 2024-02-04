@@ -10,12 +10,21 @@ import {useQuery} from "react-query"
 function TitlePage({ setShowPosts, username }) {
   // State to track whether sign-up button is clicked
   const [isButtonsClicked, setIsButtonsClicked] = useState(false);
+  const [isRegisterFormOpen, setIsRegisterFormOpen] = useState(false); // State to track whether the register form is open
 
   //const { isLoading, data: user} = useQuery(['user', username], (username) => getUserRequest(username))
   
     const handleSignUpClick = () => {
         setIsButtonsClicked(true);
     };
+    
+  const handleOpenRegisterForm = () => {
+    setIsRegisterFormOpen(true);
+  };
+
+  const handleCloseRegisterForm = () => {
+    setIsRegisterFormOpen(false);
+  };
     return (
         <div className="title-container">
             <Header /> 
@@ -30,18 +39,23 @@ function TitlePage({ setShowPosts, username }) {
                 
                 {/* Conditionally render the LoginButton component */}
                 {!isButtonsClicked && <LoginButton />}
-                
-                <div className="green-bar">
-                    <RegisterBusinessForm />
-                </div>
-            </div>
-        {/* Conditionally render the LoginButton component */}
         <div className="green-bar">
-          <RegisterBusinessForm />
+          <button onClick={handleOpenRegisterForm} className="reg-button">
+            Register Business Form 
+            </button>
         </div>
+        {/* Conditionally render the Register Business Form */}
+        {isRegisterFormOpen && (
+          <div className="register-form-popup">
+            <div className="catchphrase">
+              <span className="close" onClick={handleCloseRegisterForm}>&times;</span>
+              <RegisterBusinessForm />
+            </div>
+          </div>
+        )}
       </div>
+    </div>
   );
 }
 
 export default TitlePage;
-
