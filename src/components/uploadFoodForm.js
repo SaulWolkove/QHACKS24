@@ -35,7 +35,6 @@ function UploadFoodForm({ username }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     setIsSubmitting(true);
-
     const form = event.target;
     const name = form.name.value;
     const foodGroup = form.foodGroup.value;

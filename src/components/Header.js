@@ -6,16 +6,8 @@ import LogoMain from './LogoMain.png';
 import logo2 from './cartIcon2.png.jpg';
 
 function Header() {
-    const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
     const navigate = useNavigate();    
 
-    const handleLogin = () => {
-        if (isAuthenticated) {
-            logout();
-        } else {
-            loginWithRedirect();
-        }
-    };
     const handleTitlePageClick  = () => {
         navigate('/'); // Redirect to the help page
     };
