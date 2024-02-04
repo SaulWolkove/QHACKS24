@@ -6,6 +6,7 @@ import UploadFoodForm from './components/uploadFoodForm';
 import AboutUs from './components/AboutUs';
 import Help from './components/Help';
 import BuyingFood from './components/BuyingFood';
+import TitlePage from './components/TitlePage';
 
 function App() {
   const [showposts, setShowPosts] = useState(true);
@@ -13,7 +14,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<AppTitle />} />
+        <Route path="/" element={<TitlePage />} />
         <Route path="/cart" element={<CartPage />} />
         <Route
           path="/buying-food"

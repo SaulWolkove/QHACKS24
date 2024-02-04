@@ -6,8 +6,6 @@ import addItemRequest from "../api/addItemRequest";
 import Header from './Header';  
 import LogoMain from './LogoMain.png'; // Import the LogoMain.png file
 
-
-
 const FoodItem = (
   food,
   group,
@@ -32,9 +30,11 @@ const FoodItem = (
 function UploadFoodForm({ username }) {
   const [sizeOption, setSizeOption] = useState("number");
   const navigate = useNavigate(); // Initialize useNavigate hook
+  const [isSubmitting, setIsSubmitting] = useState(false); // manage submit button
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsSubmitting(true);
 
     const form = event.target;
     const name = form.name.value;
@@ -58,15 +58,19 @@ function UploadFoodForm({ username }) {
       sizeCategory,
       username
     );
-    addItemRequest(newFoodItem).then((response) => console.log(response));
-  };
-  const handlePostFoodClick = () => {
-    navigate('/post-food'); // Navigate to /post-food route
+    addItemRequest(newFoodItem).then((response) => {
+      console.log(response);
+      // Reset form fields after submission
+      form.reset();
+      // Reset additional component state if necessary
+      setSizeOption("number");
+      setIsSubmitting(false);
+    });
   };
 
   return (
     <div className="centered-container"> 
-      <img src={LogoMain} alt="LogoMain" style={{ width: '200px', height: 'auto' }} /> {/* LogoMain image */}
+      <img src={LogoMain} alt="LogoMain" style={{ width: '200px', height: 'auto' }} />
       <form className="upload-food-form" onSubmit={handleSubmit}>
         <Header />
         <div className="upload-food-title">
@@ -92,35 +96,16 @@ function UploadFoodForm({ username }) {
           Expiry Date: <input type="date" name="expiryDate" required />
         </label>
         <label>
-          Quantity:{" "}
-          <input
-            type="number"
-            name="quantity"
-            min="1"
-            required
-            placeholder="Quantity"
-          />
+          Quantity: <input type="number" name="quantity" min="1" required placeholder="Quantity" />
         </label>
         <div className="centered-content">
           <div className="option-container">
             <label>
-              <input
-                type="radio"
-                name="sizeOption"
-                value="number"
-                checked={sizeOption === "number"}
-                onChange={() => setSizeOption("number")}
-              />
+              <input type="radio" name="sizeOption" value="number" checked={sizeOption === "number"} onChange={() => setSizeOption("number")} />
               Measurement
             </label>
             <label>
-              <input
-                type="radio"
-                name="sizeOption"
-                value="size"
-                checked={sizeOption === "size"}
-                onChange={() => setSizeOption("size")}
-              />
+              <input type="radio" name="sizeOption" value="size" checked={sizeOption === "size"} onChange={() => setSizeOption("size")} />
               Size
             </label>
           </div>
@@ -145,10 +130,9 @@ function UploadFoodForm({ username }) {
             )}
           </div>
           <label>
-            Picture (optional):{" "}
-            <input type="file" name="image" accept="image/*" />
+            Picture (optional): <input type="file" name="image" accept="image/*" />
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit" disabled={isSubmitting}>{isSubmitting ? 'Submitting...' : 'Submit'}</button>
         </div>
       </form>
     </div>
