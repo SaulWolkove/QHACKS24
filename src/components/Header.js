@@ -7,7 +7,7 @@ import logo2 from './cartIcon2.png.jpg';
 
 function Header() {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-    const history = useNavigate();    
+    const navigate = useNavigate();    
 
     const handleLogin = () => {
         if (isAuthenticated) {
@@ -18,11 +18,11 @@ function Header() {
     };
 
     const handleCartClick = () => {
-        history.push('/cart'); // Redirect to the cart page
+        navigate('/cart'); // Redirect to the cart page
     };
 
     const handlePostFoodClick = () => {
-        history.push('/post-food'); // Redirect to the upload food form page
+        navigate('/post-food'); // Redirect to the upload food form page
     };
 
     return (
