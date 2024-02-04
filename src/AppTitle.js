@@ -20,7 +20,7 @@ function AppTitle() {
 
   return (
     <div className="App">
-      <TitlePage setShowPosts={handleShowPosts} setIsSignUpClicked={setIsSignUpClicked} />
+      <TitlePage setShowPosts={handleShowPosts} setIsSignUpClicked={setIsSignUpClicked} username={username}/>
       <UserData chooseUsername={chooseUsername}/>
       <StoreInfoLoader username={username} showPostsStatus={showPostsStatus}/> {/* Pass the status as prop */}
     </div>

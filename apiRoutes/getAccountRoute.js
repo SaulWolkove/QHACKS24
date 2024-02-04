@@ -1,7 +1,8 @@
 const UserModel = require("../models/userModel")
 
 module.exports = async (req,res)=>{
-    const username= req.query.username
+    const username= req.query.id
+    console.log(req.query)
     const userData = await UserModel.find({email: username});
-    res.json(user);
+    res.json(userData);
 }
