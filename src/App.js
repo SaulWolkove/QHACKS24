@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartPage from './components/CartPage';
 import AppTitle from './AppTitle';
 import Header from './components/Header';
+import UploadFoodForm from './components/uploadFoodForm';
 
 function App() {
   return (

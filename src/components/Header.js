@@ -1,13 +1,13 @@
 import React from 'react';
 import { useAuth0 } from "@auth0/auth0-react";
-import { Link, useHistory } from 'react-router-dom'; // Import Link and useHistory for routing
+import { Link, useNavigate } from 'react-router-dom'; // Import Link and useHistory for routing
 import './Header.css'; // Import the CSS file for styling
 import logo from './searchIcon2.jpg';
 import logo2 from './cartIcon2.png.jpg';
 
 function Header() {
     const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
-    const history = useHistory();    
+    const history = useNavigate();    
 
     const handleLogin = () => {
         if (isAuthenticated) {
