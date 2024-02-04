@@ -10,10 +10,10 @@ import {useQuery} from "react-query"
 function TitlePage({ setShowPosts, username }) {
   // State to track whether sign-up button is clicked
   const [isButtonsClicked, setIsButtonsClicked] = useState(false);
+
   console.log(username)
   const { isLoading, data: user} = useQuery(['user', username], (username) => getUserRequest(username))
   
-
     const handleSignUpClick = () => {
         setIsButtonsClicked(true);
     };

@@ -1,11 +1,12 @@
 import React from "react";
 // import register business request
+import updateUserRequest from '../api/updateUserRequest'
 
-const Business = (username, accountType, name, location) => {
+const Business = (username, name, location) => {
   return {
     email: username,
-    accountType: accountType,
-    businessName: name,
+    accountType: "business",
+    corp: name,
     location: location,
   };
 };
@@ -19,7 +20,7 @@ function RegisterBusinessForm({ username }) {
 
     // need to pass in account type? or just set constant
     const newBusiness = Business(name, accountType, location);
-    // new business request (matching top up import)
+    updateUserRequest(newBusiness)
   };
 
   // on submit, should route back to close form and update footer and view
