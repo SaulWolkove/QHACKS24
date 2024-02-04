@@ -32,25 +32,22 @@
     cursor: pointer;
     font-size: 31px; 
     font-family: 'Lato', sans-serif;    
-    margin-right: 80px;
+    align-items: center; /* Align items vertically */
     font-weight: bold;
 
 }
 .cart-button button{
-    width: 60px;
+    width: 70px;
     background-color: #adde69;
     color: #192f01;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    margin-right: 30px; /* Move the cart button 1 cm to the right */
     text-decoration: underline;
-    margin-right: 20px; /* Add margin to the right */
-
 }
 
 .cart-icon {
-    width: 30%; /* Set width to 1/8 of the original size */
+    width: 40%; /* Set width to 1/8 of the original size */
     height: auto; /* Maintain aspect ratio */
 }
 .search-container {
