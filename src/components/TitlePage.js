@@ -6,19 +6,31 @@ import LogoMain from "./LogoMain.png";
 import RegisterBusinessForm from "./RegisterBusinessForm";
 import getUserRequest from "../api/getUserRequest";
 import { useQuery } from "react-query";
+import addUserRequest from "../api/addUserRequest";
 
-function TitlePage({ setShowPosts, username }) {
+function TitlePage({ setShowPosts, username, setAccountType }) {
   // State to track whether sign-up button is clicked
-  const [isButtonsClicked, setIsButtonsClicked] = useState(false);
-  const [isRegisterFormOpen, setIsRegisterFormOpen] = useState(false); // State to track whether the register form is open
+  const [userUpdated, setUserUpdate] = useState(false);
 
-  const { isLoading, data: user } = useQuery(["user", username], (username) =>
-    getUserRequest(user)
+  const [isRegisterFormOpen, setIsRegisterFormOpen] = useState(false); // State to track whether the register form is open
+  
+  const { isLoading, data: user } = useQuery(
+    ["user", username],
+    (username) => getUserRequest(username.queryKey[1]),
+    {
+      onSuccess: (data) => {
+
+        !isLoading && !userUpdated && update()
+      },
+    }
   );
 
-  const handleSignUpClick = () => {
-    setIsButtonsClicked(true);
-  };
+  const update = () =>{
+    addUserRequest(username)
+    setUserUpdate(true)
+  }
+
+
 
   const handleOpenRegisterForm = () => {
     setIsRegisterFormOpen(true);
@@ -30,7 +42,7 @@ function TitlePage({ setShowPosts, username }) {
 
   return (
     <div className="title-container">
-      {!isLoading && console.log(user)}
+      {!isLoading}
       <Header />
       <div className="title-container">
         <img src={LogoMain} alt="logo" className="logo img" />
@@ -53,7 +65,7 @@ function TitlePage({ setShowPosts, username }) {
         </div>
 
         {/* Conditionally render the LoginButton component */}
-        {!isButtonsClicked && <LoginButton />}
+        {!username && !isLoading && <LoginButton />}
         <div className="green-bar">
           <button onClick={handleOpenRegisterForm} className="reg-button">
             Register Business Form
@@ -66,7 +78,7 @@ function TitlePage({ setShowPosts, username }) {
               <span className="close" onClick={handleCloseRegisterForm}>
                 &times;
               </span>
-              <RegisterBusinessForm />
+              <RegisterBusinessForm id={user[0]._id} handleClose={handleCloseRegisterForm}/>
             </div>
           </div>
         )}

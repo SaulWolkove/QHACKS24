@@ -1,6 +1,6 @@
 export default (user)=>{
-    return fetch(`http://localhost:3001/user/post/${user._id}`, {
-        method: "PUT",
+    return fetch(`http://localhost:3001/user/post/${user.id}`, {
+        method: "POST",
         headers: {
             "Content-Type": "application/json"
         },

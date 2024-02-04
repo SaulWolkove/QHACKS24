@@ -1,3 +1,24 @@
+.overlapping-grid-container {
+    display: grid;
+    position: relative; /* Ensure the parent container establishes a stacking context */
+  }
+  
+  .centered-container,
+  .centered-container-gap {
+    grid-row: 1;
+    grid-column: 1;
+  }
+  
+  /* Adjust z-index if necessary for visual layering */
+  .centered-container {
+    z-index: 2; /* This div appears above the .centered-container-gap */
+  }
+  
+  .centered-container-gap {
+    z-index: 1; /* This ensures it stays behind the .centered-container */
+  }
+  
+
 .upload-food-form {
     max-width: 600px;
     margin: auto;
@@ -31,9 +52,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 90vh; /* Adjust this value based on your requirements */
+    height: 100vh; /* Adjust this value based on your requirements */
+    z-index: 1; /* This ensures it stays behind the .centered-container */
+
 }
-  
+
 .upload-food-form input[type="text"],
 .upload-food-form input[type="number"],
 .upload-food-form input[type="date"],
@@ -61,3 +84,4 @@
 .upload-food-form button[type="submit"]:hover {
     background-color: #192f01;
 }
+
