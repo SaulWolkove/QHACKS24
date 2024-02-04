@@ -28,13 +28,10 @@ function TitlePage({ setShowPosts, username }) {
                 <div className="description">
                     <p>FreshSave offers affordable groceries to non-profits, supporting their meal programs for communities in need. We prioritize accessibility to fresh ingredients, aiding organizations combating food insecurity. Through discounted rates, we assist non-profits in maximizing their budgets, fostering collaboration among stakeholders. Together, we combat hunger, one meal at a time. Join us in creating a world without hunger. Welcome to FreshSave, where meals start with compassion and end with hope.</p>
                 </div>
-                {/* Add buttons section */}
+                
                 {/* Conditionally render the LoginButton component */}
-                {!isButtonsClicked && (
-                    <div>
-                        <LoginButton />
-                    </div>
-                )}
+                {!isButtonsClicked && <LoginButton />}
+                
                 <div className="green-bar">
                     <RegisterBusinessForm />
                 </div>
