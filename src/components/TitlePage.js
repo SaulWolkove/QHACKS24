@@ -10,8 +10,8 @@ function TitlePage({ setShowPosts, username }) {
   // State to track whether sign-up button is clicked
   const [isButtonsClicked, setIsButtonsClicked] = useState(false);
 
-  const { isLoading, data: user} = useQuery(['user', username], (username) => getUserRequest(username))
-  if (!isLoading){
+const { isLoading, data: user} = useQuery(['user', username], (username) => getUserRequest(username))
+if (!isLoading){
     console.log(username)
   }
 
