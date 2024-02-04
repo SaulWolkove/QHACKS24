@@ -50,7 +50,7 @@ function TitlePage({ setShowPosts }) {
                     </div>
                 )}
                 <div className="green-bar">
-                    <p>More Servises</p>
+                    <p>More Services</p>
                     <p>Partner with Us</p>
                     <p>About us</p>
                 </div>
