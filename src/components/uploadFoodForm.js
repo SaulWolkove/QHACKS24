@@ -70,7 +70,7 @@ function UploadFoodForm({ username }) {
       <form className="upload-food-form" onSubmit={handleSubmit}>
         <Header />
         <div className="upload-food-title">
-          <h2 style={{ fontFamily: 'Lato, sans-serif', marginTop: '2cm' }}>Upload Your Food Here</h2>
+          <h2 style={{ fontFamily: 'Lato, sans-serif' }}>Upload Your Food Here</h2>
         </div>
         
         <label>
