@@ -29,7 +29,6 @@ function App() {
         />
         <Route path="/post-food" element={<UploadFoodForm username={username}/>} />
         <Route path="/about-us" element={<AboutUs />} username={username}/>
-        <Route path="/help" element={<Help />} username={username}/>
       </Routes>
     </BrowserRouter>
   );

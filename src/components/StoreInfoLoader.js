@@ -46,7 +46,7 @@ export default function StoreInfoLoader({ username }) {
                             
                         </div>
                         <div>
-                            <button className="delete-button" onClick={() => handleDelete(item._id)}>Delete</button>
+                            <button className="delete-button" onClick={() => handleDelete(item._id)}>Dismiss Item</button>
                         </div>
                     </div>
                 ))

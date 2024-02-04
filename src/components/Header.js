@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom'; // Import Link and useHist
 import './Header.css'; // Import the CSS file for styling
 import LogoMain from './LogoMain.png';
 import logo2 from './cartIcon2.png.jpg';
+import LogoutButton from "./LogoutButton"
 
 function Header() {
     const navigate = useNavigate();    
@@ -64,9 +65,7 @@ function Header() {
                     <img src={logo2} alt="Cart" className="cart-icon" />
                 </button>
             </div>
-            <div className="profile-button" style={{ marginRight: '0.95cm' }}>
-                
-            </div>
+            <LogoutButton/>
         </div>
     );
 }

@@ -5,11 +5,11 @@ import { useQuery } from "react-query";
 import updateItemRequest from "../api/updateItemRequest";
 import Header from './Header';
 import LogoMain from './LogoMain.png';
-
+import {useQueryClient} from "react-query"
 function BuyingFood({ username }) {
   // state for posts
   const [posts, setPosts] = useState([]);
-
+  const queryClient = useQueryClient();
   // fetch posts
   const { isLoading, data: fetchedPosts } = useQuery(
     ["posts", username],
@@ -60,7 +60,8 @@ function BuyingFood({ username }) {
   const addingToCart = true
   const handleAddToCart = (id) => {
     updateItemRequest(id, username,addingToCart).then(() => {
-      // Optionally invalidate or refetch posts query to reflect changes
+      queryClient.invalidateQueries(['posts', username]);
+
     });
   };
 

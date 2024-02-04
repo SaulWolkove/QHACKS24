@@ -62,6 +62,7 @@ function TitlePage({ setShowPosts, username, setAccountType }) {
             us in creating a world without hunger. Welcome to FreshSave, where
             meals start with compassion and end with hope.
           </p>
+          {!userUpdated && (<h3 style={{marginTop:"300px"}}>User: {username}</h3>)}
         </div>
 
         {/* Conditionally render the LoginButton component */}

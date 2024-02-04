@@ -35,7 +35,7 @@ function AboutUS({ setShowPosts }) {
                 <div className="team-member">
                     <p className="catchphrase"> Saul Wolkove.</p>
                     <div className="description">
-                        <p>I am a second year.</p>
+                        <p>Making this app was so much fun!</p>
                     </div>
                 </div>
                 <div className="team-member">

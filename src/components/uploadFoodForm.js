@@ -5,7 +5,7 @@ import "./uploadFoodForm.css";
 import addItemRequest from "../api/addItemRequest";
 import Header from './Header';  
 import LogoMain from './LogoMain.png'; // Import the LogoMain.png file
-
+import {useQueryClient} from "react-query"
 const FoodItem = (
   food,
   group,
@@ -28,6 +28,8 @@ const FoodItem = (
 };
 
 function UploadFoodForm({ username }) {
+  const queryClient = useQueryClient()
+
   const [sizeOption, setSizeOption] = useState("number");
   const navigate = useNavigate(); // Initialize useNavigate hook
   const [isSubmitting, setIsSubmitting] = useState(false); // manage submit button
@@ -57,6 +59,7 @@ function UploadFoodForm({ username }) {
       sizeCategory,
       username
     );
+
     addItemRequest(newFoodItem).then((response) => {
       console.log(response);
       // Reset form fields after submission
@@ -64,6 +67,8 @@ function UploadFoodForm({ username }) {
       // Reset additional component state if necessary
       setSizeOption("number");
       setIsSubmitting(false);
+      queryClient.invalidateQueries(['items', username]);
+
     });
   };
 

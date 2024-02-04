@@ -21,6 +21,7 @@ body, h1, p {
     padding-top: 1cm; /* Adjust the top padding to start 2 cm down */
     position: relative;
     padding-bottom: 2cm; 
+    height:100%
 }
 
 .green-bar {

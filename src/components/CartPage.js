@@ -4,8 +4,10 @@ import readPostRequest from "../api/readPostRequest";
 import { useQuery } from "react-query";
 import updateItemRequest from '../api/updateItemRequest';
 import Header from './Header'; // Import the Header component
-
+import LogoMain from './LogoMain.png';
+import {useQueryClient} from "react-query"
 function CartPage({ username }) {
+  const queryClient = useQueryClient()
   // state for posts and expiring items by user
   const [posts, setPosts] = useState([]);
   const [expiringItemsByUser, setExpiringItemsByUser] = useState({});
@@ -62,14 +64,14 @@ function CartPage({ username }) {
   // handle add to cart action
   const adding = false
   const handleRemoveFromCart = (id) => {
+    queryClient.invalidateQueries(['card', username]);
     updateItemRequest(id, username, adding);
     // Increment the cart item count when an item is added to the cart
-    setCartItemCount(prevCount => prevCount + 1);
   };
 
   // placeholder image component
   const PlaceholderImage = () => (
-    <div style={{ height: '200px', backgroundColor: '#eaeaea' }}>Image placeholder</div>
+    <img src={LogoMain} alt="Logo" style={{width:"100%",height:"auto"}} />
   );
 
   // render loading state or posts list
@@ -78,7 +80,7 @@ function CartPage({ username }) {
       {/* Render the header component */}
       <Header />
       <div className="cart-label-container">     
-        <h2 style={{ fontFamily: 'Lato, sans-serif', marginTop: '2cm' }}>Cart</h2> {/* Display the number of items in the cart */}
+        <h2 style={{ fontFamily: 'Lato, sans-serif', marginTop: '20px', fontSize:"2em"}}>Cart</h2> {/* Display the number of items in the cart */}
       </div>
       {isLoading ? (
         <div>Loading...</div>

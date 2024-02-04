@@ -1,15 +1,10 @@
 /* CartPage.css */
 
 .posts-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+        height: 82vh;
+    width: 100%;
   }
   
-  .post {
-    width: calc(33.33% - 10px); /* 33.33% to have 3 boxes per row, subtracting margins */
-    margin-bottom: 20px;
-  }
   
   .post-info {
     padding: 10px;
@@ -19,8 +14,9 @@
   /* Adjust the size of the image placeholder */
   .post .post-info .placeholder-image {
     height: 200px;
-    width: 200px;
+    width: 100%;
     background-color: #f8efea;
+    margin: "0px"
   }
   
   /* Add styles for the buttons */
@@ -63,4 +59,12 @@
     margin-top: 2cm;
   }
   
+  .centered-logo {
+    width: 200px; /* Adjust width as needed */
+    height: auto; /* Maintain aspect ratio */
+    }
   
+    .post-grid {
+      width: 100%;
+      height: 100%
+    }
