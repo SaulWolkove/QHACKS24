@@ -1,43 +1,22 @@
-import UserData from './components/UserData';
-import UploadFoodForm from './components/uploadFoodForm';
-import BuyingFood from './components/BuyingFood';
-import TitlePage from './components/TitlePage';
-import { useState } from 'react';
-import StoreInfoLoader from './components/StoreInfoLoader';
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import CartPage from './components/CartPage';
+import AppTitle from './AppTitle';
+import Header from './components/Header';
+import UploadFoodForm from './components/uploadFoodForm';
+import AboutUs from './components/AboutUs'; // Import the AboutUs component
+import Help from './components/Help'; // Import the Help component
 
 function App() {
-  const [username, setUsername] = useState("");
-  const [isSignUpClicked, setIsSignUpClicked] = useState(false);
-
-  function chooseUsername(name) {
-    setUsername(name);
-  }
-
-  function handleSignUpClick() {
-    setIsSignUpClicked(true);
-  }
-
-  const [showposts, setposts] = useState(true);
-  function setShowPosts() {
-    setposts(!showposts);
-  }
-
   return (
     <BrowserRouter>
-      <div className="App">
-        <TitlePage setShowPosts={setShowPosts} setIsSignUpClicked={setIsSignUpClicked} />
-        <UserData chooseUsername={chooseUsername}/>
-        <UploadFoodForm username={username}/>
-        {showposts && <BuyingFood username={username} showposts={showposts}/>}
-        <StoreInfoLoader username={username}/>
-      
-        <Routes>
-          <Route path="/cart" element={<CartPage />} />
-          {/* Define other routes as needed */}
-        </Routes>
-      </div>
+      <Routes>
+        <Route path="/" element={<AppTitle />} />
+        <Route path="/cart" element={<CartPage />} />
+        <Route path="/post-food" element={<UploadFoodForm />} /> {/* Define the route for /post-food */}
+        <Route path="/about-us" element={<AboutUs />} /> {/* Add the route for About Us page */}
+        <Route path="/help" element={<Help />} /> {/* Add the route for Help page */}
+      </Routes>
     </BrowserRouter>
   );
 }
