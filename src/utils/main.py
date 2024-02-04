@@ -48,19 +48,19 @@ mealkit_generation_function = [
     }
 ]
 
-def generateMealText():
+def generateMealText(num_meals, items):
     load_dotenv()
     API_KEY = os.environ['OPENAI_API_KEY']
 
     llm = aiOpen(openai_api_key="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", temperature=0.3)
 
     name_template = PromptTemplate(
-        template="Give me the names of two meals that could be made using the some of the following ingredients: {ingredients}. Return them in the format of a JSON file.",
+        template="Give me the names of {num_meals} meals that could be made using the some of the following ingredients: {ingredients}. Return them in the format of a JSON file.",
         input_variables=['ingredients'],
     )
 
     meal_template = PromptTemplate(
-        template="For these meals, generate a simple cooking instruction: {meals}",
+        template="For these meals made by {name}, generate a simple cooking instruction: {meals}",
         input_variables=['meals']
     )
 
@@ -68,8 +68,6 @@ def generateMealText():
     #       different util to access these probably
     # TODO: update the LLM chain prompt to include the username of whoever the list belongs to
     # TODO: Figure out how many ingredients put into one api request, maybe one from each category until no more can fill all categories
-
-    temp_prompt = "rice, chicken, beans, tomato"
 
     meal_name_chain = LLMChain(
         llm = llm,
@@ -87,27 +85,26 @@ def generateMealText():
     
     overall_chain = SequentialChain(
         chains = [meal_name_chain, description_chain],
-        input_variables=['ingredients'],
+        input_variables=['ingredients', 'num_meals'],
         output_variables=['meals', 'meal_descrips'],
         verbose=True,
     )
 
-    output = overall_chain({ 'ingredients': temp_prompt})
+    output = overall_chain({ 'ingredients': items, 'num_meals': num_meals })
 
     return output
 
-def mealJSONObject():
+def mealJSONObject(num_meals, name, items):
     load_dotenv()
     client = OpenAI(api_key=os.environ['OPENAI_API_KEY'])
 
-    meal_description = generateMealText()
+    meal_description = generateMealText(num_meals, items)
     prompt_content = f'''Please extract the following information from the given text and return it as a JSON object:
-    name
     description
     ingredients
     username
 
-    Extract from the following text: {meal_description}.
+    Extract from the following text: {meal_description}. Set the name property equal to: {name}.
     
     '''
     response = client.chat.completions.create(

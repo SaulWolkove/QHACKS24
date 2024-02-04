@@ -5,6 +5,7 @@ import { useQuery } from "react-query";
 import updateItemRequest from "../api/updateItemRequest";
 import Header from "./Header";
 import LogoMain from "./LogoMain.png";
+import getPythonExec from "../api/getPythonExec";
 
 function BuyingFood({ username }) {
   // state for posts
@@ -55,9 +56,35 @@ function BuyingFood({ username }) {
       }
     });
 
-    console.log(dictionary);
     return dictionary;
-  }, [posts, currentDate]); // Recalculate when posts or currentDate changes
+  }, [posts, getDaysDifference, currentDate]); // Recalculate when posts or currentDate changes
+
+  async function createMealKit(name, num_meals, items) {
+    let result;
+    try {
+      result = await getPythonExec(name, num_meals, items);
+      console.log(result);
+    } catch (error) {
+      console.error("Error:", error);
+    }
+
+    return result;
+  }
+
+  const mealKits = useMemo(() => {
+    var mealKitList = [];
+    for (const corp in expiringItemsByUser) {
+      var num_meals = expiringItemsByUser[corp].length;
+      num_meals < 5 ? (num_meals = 1) : (num_meals /= 5);
+      const items = expiringItemsByUser[corp];
+      const result = createMealKit(corp, num_meals, items);
+
+      mealKitList.push(result);
+    }
+    return mealKitList;
+  }, [expiringItemsByUser]);
+
+  const bleh = useMemo(() => console.log(mealKits), [mealKits]);
 
   // handle add to cart action
   const handleAddToCart = (id) => {
@@ -76,6 +103,7 @@ function BuyingFood({ username }) {
     <div>Loading...</div>
   ) : (
     <>
+      {!isLoading && bleh}
       <Header />
       <div className="logo-container">
         <PlaceholderImage />
