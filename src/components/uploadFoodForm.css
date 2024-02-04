@@ -1,5 +1,5 @@
 .upload-food-form {
-    max-width: 500px;
+    max-width: 600px;
     margin: auto;
     padding: 20px;
     border-radius: 5px;
@@ -14,7 +14,8 @@
     font-size: 24px;
 }
 
-.option-container, .input-container {
+.option-container, 
+.input-container {
     display: flex;
     justify-content: space-between;
     width: 100%; 
@@ -26,13 +27,11 @@
     width: 100%; 
 }
 .centered-container {
-    margin-top: 2cm;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0cm; 
-    height: 100vh; /* Adjust this value based on your requirements */
+    height: 90vh; /* Adjust this value based on your requirements */
 }
   
 .upload-food-form input[type="text"],
