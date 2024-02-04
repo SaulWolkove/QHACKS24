@@ -5,6 +5,7 @@
     border-radius: 5px;
     background-color: #f8efea;
     font-family: 'Lato', sans-serif;
+    padding-top: 0;
 }
 
 .upload-food-title {
@@ -24,7 +25,16 @@
     margin-bottom: 10px; 
     width: 100%; 
 }
-
+.centered-container {
+    margin-top: 2cm;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0cm; 
+    height: 100vh; /* Adjust this value based on your requirements */
+}
+  
 .upload-food-form input[type="text"],
 .upload-food-form input[type="number"],
 .upload-food-form input[type="date"],
