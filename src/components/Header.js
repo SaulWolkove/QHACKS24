@@ -31,7 +31,9 @@ function Header() {
     const handleHelpClick  = () => {
         navigate('/help'); // Redirect to the help page
     };
-
+    const handleBuyFoodClick  = () => {
+        navigate('/buying-food'); // Redirect to the help page
+    };
     return (
         <div className="header">
             <div className="dropdown">
@@ -44,6 +46,8 @@ function Header() {
                         handleAboutUsClick();
                     }else if (selectedOption === 'help') {
                         handleHelpClick();
+                    }else if (selectedOption === 'buy_food') {
+                        handleBuyFoodClick();
                     }
                 }}>
                     <option value="select_an_Option">Select an Option</option>

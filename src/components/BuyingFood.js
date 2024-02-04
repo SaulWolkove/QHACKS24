@@ -3,6 +3,8 @@ import "./BuyingFood.css";
 import readPostRequest from "../api/readPostRequest";
 import { useQuery } from "react-query";
 import updateItemRequest from "../api/updateItemRequest";
+import Header from './Header';
+import LogoMain from './LogoMain.png';
 
 function BuyingFood({ username }) {
   // state for posts and expiring items by user
@@ -80,7 +82,11 @@ function BuyingFood({ username }) {
     <div>Loading...</div>
   ) : (
     <>
+      <Header />
       <button className="cart-button">Cart</button>
+      <div className="logo-container">
+        <img src={LogoMain} alt="Logo" className="centered-logo" />
+      </div>
       <div className="posts-container">
         {Object.entries(expiringItemsByUser).map(([username, items]) => (
           <div key={username}>

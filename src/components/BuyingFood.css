@@ -25,6 +25,16 @@
     font-family: 'Lato', sans-serif;
 
 }
+.logo-container {
+    text-align: center;
+    margin-top: 20px; /* Adjust margin top as needed */
+}
+
+.centered-logo {
+width: 200px; /* Adjust width as needed */
+height: auto; /* Maintain aspect ratio */
+}
+
 .post img {
     max-width: 100%;
     height: auto;

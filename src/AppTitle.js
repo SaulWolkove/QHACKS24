@@ -1,33 +1,28 @@
 import React, { useState } from 'react';
 import UserData from './components/UserData';
-import BuyingFood from './components/BuyingFood';
 import TitlePage from './components/TitlePage';
 import StoreInfoLoader from './components/StoreInfoLoader';
 
 function AppTitle() {
   const [username, setUsername] = useState("");
   const [isSignUpClicked, setIsSignUpClicked] = useState(false);
+  const [showPosts, setShowPosts] = useState(true); // Changed variable name to showPosts
+  const [showPostsStatus, setPostsStatus] = useState(true); // New state variable for status
 
   function chooseUsername(name) {
     setUsername(name);
   }
 
-  function handleSignUpClick() {
-    setIsSignUpClicked(true);
-  }
-
-  const [showposts, setposts] = useState(true);
-  function setShowPosts() {
-    setposts(!showposts);
+  function handleShowPosts() { // Changed function name
+    setShowPosts(!showPosts);
+    setPostsStatus(!showPostsStatus); // Update the status
   }
 
   return (
     <div className="App">
-      <TitlePage setShowPosts={setShowPosts} setIsSignUpClicked={setIsSignUpClicked} />
+      <TitlePage setShowPosts={handleShowPosts} setIsSignUpClicked={setIsSignUpClicked} />
       <UserData chooseUsername={chooseUsername}/>
-      
-      {showposts && <BuyingFood username={username} showposts={showposts}/>}
-      <StoreInfoLoader username={username}/>
+      <StoreInfoLoader username={username} showPostsStatus={showPostsStatus}/> {/* Pass the status as prop */}
     </div>
   );
 }
