@@ -70,7 +70,7 @@ function UploadFoodForm({ username }) {
 
   return (
     <div className="centered-container"> 
-      <img src={LogoMain} alt="LogoMain" style={{ width: '200px', height: 'auto' }} />
+      <img src={LogoMain} alt="LogoMain" style={{ width: '200px', height: 'auto', marginTop: '3cm' }}  />
       <form className="upload-food-form" onSubmit={handleSubmit}>
         <Header />
         <div className="upload-food-title">
