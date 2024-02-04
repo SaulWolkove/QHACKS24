@@ -28,6 +28,9 @@ function Header() {
     const handleAboutUsClick = () => {
         navigate('/about-us'); // Change '/about-us' to the actual route for About Us page
     };
+    const handleHelpClick  = () => {
+        navigate('/help'); // Redirect to the help page
+    };
 
     return (
         <div className="header">
@@ -39,6 +42,8 @@ function Header() {
                         handlePostFoodClick();
                     } else if (selectedOption === 'about') {
                         handleAboutUsClick();
+                    }else if (selectedOption === 'help') {
+                        handleHelpClick();
                     }
                 }}>
                     <option value="select_an_Option">Select an Option</option>
