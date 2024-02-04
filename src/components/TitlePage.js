@@ -17,9 +17,8 @@ function TitlePage({ setShowPosts }) {
         <div className="title-container">
             <Header /> 
             <div className="title-container">
-                <button>
-                    <img src={LogoMain} alt="logo" className="logo img"/>
-                </button>                 
+                <img src={LogoMain} alt="logo" className="logo img"/>
+                                
                 <h1 className="title">FreshSave</h1>
                 <p className="catchphrase">Where Every Bite Gets a Second Chance to Make a First Impression.</p>
                 <div className="description">
