@@ -1,6 +1,7 @@
 import React from "react";
 // import register business request
 import updateUserRequest from '../api/updateUserRequest'
+import "./TitlePage.css";
 
 const Business = (username, name, location) => {
   return {
@@ -28,16 +29,22 @@ function RegisterBusinessForm({ username }) {
   return (
     <form className="reg-business-form" onSubmit={handleSubmit}>
       <h1 className="reg-business-title">Register Your Business Account</h1>
-      <label>
-        Company Name: <input type="text" name="businessName" required />
-      </label>
-      <label>
-        Building Address: <input type="text" name="location" required />
-      </label>
-
-      <button type="submit">Register</button>
+      <div className="form-group">
+        <label>
+          Company Name:
+          <input type="text" name="businessName" required />
+        </label>
+      </div>
+      <div className="form-group">
+        <label>
+          Building Address:
+          <input type="text" name="location" required />
+        </label>
+      </div>
+      <button type="submit" className="reg-here-butt">Register</button>
     </form>
   );
+  
 }
 
 export default RegisterBusinessForm;
